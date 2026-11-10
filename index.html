@@ -4,74 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#145b49">
-<meta name="description" content="動多啲，健康啲！運動迷思與事實互動問答，由物理治療角度認識健康體重管理。">
+<meta name="description" content="動多啲，健康啲！運動迷思與事實互動問答。">
 <title>運動迷思大挑戰｜動多啲．健康啲</title>
 <style>
-:root{--ink:#183a32;--muted:#657971;--green:#176b55;--deep:#145b49;--mint:#e7f4ec;--cream:#fbfaf5;--gold:#ffd36f;--line:#dbe8df;--red:#ad5144;--white:#fff;--shadow:0 16px 42px rgba(20,55,46,.11)}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+:root{--ink:#183a32;--muted:#657971;--green:#176b55;--mint:#e7f4ec;--cream:#fbfaf5;--gold:#ffd36f;--line:#dbe8df;--white:#fff;--shadow:0 16px 42px rgba(20,55,46,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:linear-gradient(180deg,#e7f4ec 0,#f6faf6 360px,var(--cream) 100%);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6}
-button{font:inherit;cursor:pointer}
-.wrap{width:min(760px,calc(100% - 26px));margin:0 auto;padding:20px 0 38px}
-.brand{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}
-.brandmark{display:flex;align-items:center;gap:9px;font-weight:850;letter-spacing:.02em;font-size:13px}
-.mark{width:35px;height:35px;border-radius:12px;background:var(--green);color:white;display:grid;place-items:center;font-size:21px}
-.tag{font-size:11px;color:var(--green);background:#d9eee3;padding:6px 10px;border-radius:99px;font-weight:800;white-space:nowrap}
+button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));margin:0 auto;padding:20px 0 38px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}.brandmark{display:flex;align-items:center;gap:9px;font-weight:850;font-size:13px}
+.mark{width:35px;height:35px;border-radius:12px;background:var(--green);color:white;display:grid;place-items:center;font-size:21px}.tag{font-size:11px;color:var(--green);background:#d9eee3;padding:6px 10px;border-radius:99px;font-weight:800;white-space:nowrap}
 .hero{background:linear-gradient(125deg,#145b49,#207b5d);color:white;border-radius:27px;padding:25px 24px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:8px}
-.eyebrow{font-size:12px;letter-spacing:.08em;color:#c5ebd5;font-weight:850}
-.hero h1{font-size:clamp(35px,7vw,54px);line-height:1.08;letter-spacing:-.045em;margin:10px 0 11px}
-.hero p{max-width:440px;color:#e3f2e9;margin:0;font-size:15px}
-.hero-pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}
-.hero-pills span{border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.08);border-radius:99px;padding:5px 9px;font-size:11px;color:#f2faf5}
-.art{width:100%;max-width:230px;justify-self:end;overflow:visible}
-.float{animation:float 3s ease-in-out infinite;transform-origin:center}
-.float.delay{animation-delay:-1.2s}
-.walk-leg{transform-origin:50% 0;animation:walk 1s ease-in-out infinite alternate}
-.walk-leg.two{animation-delay:-.5s}
-.pulse{transform-origin:center;animation:pulse 1.8s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes walk{0%{transform:rotate(-12deg)}100%{transform:rotate(13deg)}}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:21px;margin-top:16px;box-shadow:0 8px 25px rgba(20,55,46,.05)}
-.card h2{margin:0;font-size:22px;letter-spacing:-.02em}
-.muted{color:var(--muted)}
-.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:17px 0}
-.mini{background:#f1f8f3;border-radius:15px;padding:12px}
-.mini strong{display:block;font-size:14px}.mini span{font-size:12px;color:var(--muted)}
-.primary{width:100%;padding:15px 18px;background:var(--gold);color:#352a13;font-weight:900;border-radius:14px;font-size:16px;box-shadow:0 4px 0 #d7a94d}
-.primary:active{transform:translateY(2px);box-shadow:0 2px 0 #d7a94d}
-.secondary{background:#eff5f0;color:var(--green);font-weight:800;padding:12px 15px;border-radius:12px}
-.small-note{font-size:12px;color:var(--muted);margin:11px 0 0}
-.hidden{display:none!important}
-.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;font-weight:800;color:var(--muted)}
-.bar{height:9px;border-radius:99px;background:#edf2ee;margin:12px 0 19px;overflow:hidden}
-.bar>div{height:100%;width:0;background:linear-gradient(90deg,#268666,#f0bd52);border-radius:99px;transition:width .3s}
-.q-head{display:flex;align-items:center;gap:12px;margin:12px 0 15px}
-.q-emoji{width:58px;height:58px;border-radius:18px;background:#edf7f0;display:grid;place-items:center;font-size:32px;flex-shrink:0;animation:float 2.6s ease-in-out infinite}
-.q-label{display:inline-block;color:var(--green);background:var(--mint);font-weight:850;font-size:11px;padding:5px 9px;border-radius:99px}
-.question{font-size:clamp(20px,4.5vw,27px);line-height:1.42;letter-spacing:-.02em;margin:0;font-weight:850}
-.answers{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:20px}
-.answer{border:2px solid var(--line);background:white;color:var(--ink);padding:17px 10px;border-radius:15px;font-size:19px;font-weight:900;transition:.15s}
-.answer:hover:not(:disabled){border-color:var(--green);background:#f5fbf7}
-.answer:disabled{cursor:default;opacity:1}
-.answer.correct{border-color:#23845e;background:#e8f6ee;color:#14583d}
-.answer.wrong{border-color:#c66b5d;background:#fff0ed;color:#81372e}
-.feedback{border-radius:15px;padding:15px;margin-top:17px;background:#f1f7f2;border-left:4px solid var(--green);animation:appear .25s ease-out}
-.feedback.bad{background:#fff5ed;border-left-color:#cb8540}
-.feedback .result{font-weight:900;margin-bottom:4px;font-size:16px}
-.feedback p{margin:0;color:#405c53;font-size:14px}
-.tip{background:#fff7e5;border:1px solid #f3dfac;padding:12px 14px;border-radius:13px;margin-top:12px;font-size:13px}
-.nav{display:flex;gap:10px;margin-top:18px}.nav button{flex:1}.nav .primary{box-shadow:none}
-@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
-.score{font-size:58px;line-height:1;font-weight:950;letter-spacing:-.05em;color:var(--green);margin:12px 0}
-.result-badge{display:inline-block;font-size:12px;font-weight:900;border-radius:99px;background:#e5f4eb;color:#176344;padding:6px 10px}
-.takeaway{background:#fff7e5;border:1px solid #f3dfac;padding:16px;border-radius:16px;margin-top:16px}
-.takeaway strong{display:block;font-size:17px}
-.sources{font-size:12px;color:var(--muted)}.sources li{margin:9px 0}.sources a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:3px}
-.footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 8px}.footer strong{color:var(--green)}
-.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
-.confetti i{position:absolute;top:-15px;width:9px;height:14px;border-radius:2px;animation:fall 1.25s ease-in forwards}
-@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:.2}}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:#c5ebd5;font-weight:850}.hero h1{font-size:clamp(35px,7vw,54px);line-height:1.08;letter-spacing:-.045em;margin:10px 0 11px}.hero p{max-width:440px;color:#e3f2e9;margin:0;font-size:15px}
+.hero-pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.hero-pills span{border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.08);border-radius:99px;padding:5px 9px;font-size:11px;color:#f2faf5}
+.art{width:100%;max-width:230px;justify-self:end;overflow:visible}.float{animation:float 3s ease-in-out infinite;transform-origin:center}.float.delay{animation-delay:-1.2s}.walk-leg{transform-origin:50% 0;animation:walk 1s ease-in-out infinite alternate}.walk-leg.two{animation-delay:-.5s}.pulse{transform-origin:center;animation:pulse 1.8s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}@keyframes walk{0%{transform:rotate(-12deg)}100%{transform:rotate(13deg)}}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:21px;margin-top:16px;box-shadow:0 8px 25px rgba(20,55,46,.05)}.card h2{margin:0;font-size:22px;letter-spacing:-.02em}.muted{color:var(--muted)}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:17px 0}.mini{background:#f1f8f3;border-radius:15px;padding:12px}.mini strong{display:block;font-size:14px}.mini span{font-size:12px;color:var(--muted)}
+.primary{width:100%;padding:15px 18px;background:var(--gold);color:#352a13;font-weight:900;border-radius:14px;font-size:16px;box-shadow:0 4px 0 #d7a94d}.primary:active{transform:translateY(2px);box-shadow:0 2px 0 #d7a94d}.secondary{background:#eff5f0;color:var(--green);font-weight:800;padding:12px 15px;border-radius:12px}.small-note{font-size:12px;color:var(--muted);margin:11px 0 0}.hidden{display:none!important}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;font-weight:800;color:var(--muted)}.bar{height:9px;border-radius:99px;background:#edf2ee;margin:12px 0 19px;overflow:hidden}.bar>div{height:100%;width:0;background:linear-gradient(90deg,#268666,#f0bd52);border-radius:99px;transition:width .3s}
+.q-head{display:flex;align-items:center;gap:12px;margin:12px 0 15px}.q-emoji{width:58px;height:58px;border-radius:18px;background:#edf7f0;display:grid;place-items:center;font-size:32px;flex-shrink:0;animation:float 2.6s ease-in-out infinite}.q-label{display:inline-block;color:var(--green);background:var(--mint);font-weight:850;font-size:11px;padding:5px 9px;border-radius:99px}.question{font-size:clamp(20px,4.5vw,27px);line-height:1.42;letter-spacing:-.02em;margin:0;font-weight:850}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:20px}.answer{border:2px solid var(--line);background:white;color:var(--ink);padding:17px 10px;border-radius:15px;font-size:19px;font-weight:900;transition:.15s}.answer:hover:not(:disabled){border-color:var(--green);background:#f5fbf7}.answer:disabled{cursor:default;opacity:1}.answer.correct{border-color:#23845e;background:#e8f6ee;color:#14583d}.answer.wrong{border-color:#c66b5d;background:#fff0ed;color:#81372e}
+.feedback{border-radius:15px;padding:15px;margin-top:17px;background:#f1f7f2;border-left:4px solid var(--green);animation:appear .25s ease-out}.feedback.bad{background:#fff5ed;border-left-color:#cb8540}.feedback .result{font-weight:900;margin-bottom:4px;font-size:16px}.feedback p{margin:0;color:#405c53;font-size:14px}.tip{background:#fff7e5;border:1px solid #f3dfac;padding:12px 14px;border-radius:13px;margin-top:12px;font-size:13px}
+.nav{display:flex;gap:10px;margin-top:18px}.nav button{flex:1}.nav .primary{box-shadow:none}@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.score{font-size:58px;line-height:1;font-weight:950;letter-spacing:-.05em;color:var(--green);margin:12px 0}.result-badge{display:inline-block;font-size:12px;font-weight:900;border-radius:99px;background:#e5f4eb;color:#176344;padding:6px 10px}.takeaway{background:#fff7e5;border:1px solid #f3dfac;padding:16px;border-radius:16px;margin-top:16px}.takeaway strong{display:block;font-size:17px}
+.sources{font-size:12px;color:var(--muted)}.sources li{margin:9px 0}.sources a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:3px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 8px}.footer strong{color:var(--green)}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}.confetti i{position:absolute;top:-15px;width:9px;height:14px;border-radius:2px;animation:fall 1.25s ease-in forwards}@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:.2}}
 @media(max-width:520px){.wrap{width:min(100% - 18px,760px);padding-top:12px}.hero{padding:21px 18px;border-radius:22px;grid-template-columns:1fr .58fr;gap:0}.hero h1{font-size:clamp(31px,8vw,43px)}.hero p{font-size:13px}.art{width:120%;margin-left:-10%}.card{padding:17px;border-radius:19px}.intro-grid{gap:8px}.mini{padding:10px}.answers{gap:9px}.answer{padding:16px 8px;font-size:17px}.q-emoji{width:50px;height:50px;font-size:28px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
@@ -79,7 +36,7 @@ button{font:inherit;cursor:pointer}
 <body>
 <div class="confetti" id="confetti" aria-hidden="true"></div>
 <main class="wrap">
-  <div class="brand"><div class="brandmark"><span class="mark">＋</span><span>物理治療 · 健康教育</span></div><span class="tag">約 3 分鐘</span></div>
+  <div class="brand"><div class="brandmark"><span class="mark">＋</span><span>物理治療 · 健康教育</span></div><span class="tag">約 3–4 分鐘</span></div>
   <header class="hero">
     <div>
       <div class="eyebrow">MOVE MORE · FEEL BETTER</div>
@@ -94,18 +51,12 @@ button{font:inherit;cursor:pointer}
       <g class="float delay"><rect x="27" y="142" width="46" height="9" rx="4.5" fill="#bdebd0" transform="rotate(-25 27 142)"/><circle cx="25" cy="151" r="9" fill="#ffd36f"/><circle cx="71" cy="132" r="9" fill="#ffd36f"/></g>
       <ellipse cx="130" cy="198" rx="69" ry="10" fill="#082f26" opacity=".18"/>
       <g>
-        <circle cx="132" cy="54" r="20" fill="#f1bb91"/>
-        <path d="M113 52c1-22 38-29 44-2-10-7-22-9-33-3l-6 11Z" fill="#26483e"/>
+        <circle cx="132" cy="54" r="20" fill="#f1bb91"/><path d="M113 52c1-22 38-29 44-2-10-7-22-9-33-3l-6 11Z" fill="#26483e"/>
         <path d="M117 79c10-8 28-7 36 5l10 43-48 0-6-29c0-8 2-14 8-19Z" fill="#ffd36f"/>
-        <path d="M123 89 93 70l-7 8 29 27" stroke="#f1bb91" stroke-width="11" stroke-linecap="round" fill="none"/>
-        <path d="m151 91 26-23 7 8-25 31" stroke="#f1bb91" stroke-width="11" stroke-linecap="round" fill="none"/>
-        <path d="m119 124-22 36 9 7 33-31" stroke="#f1bb91" stroke-width="13" stroke-linecap="round" fill="none"/>
-        <path d="m153 125 21 28 12-4-14-42" stroke="#f1bb91" stroke-width="13" stroke-linecap="round" fill="none"/>
-        <path d="m97 163-14 13 22 5 8-12" fill="#e9f5ed"/>
-        <path d="m174 149 20 6-5 10-20-3" fill="#e9f5ed"/>
-        <path d="M119 45q4-4 8 0" stroke="#26483e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <path d="M137 45q4-4 8 0" stroke="#26483e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <path d="M128 59q7 7 14 0" stroke="#9a5749" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M123 89 93 70l-7 8 29 27" stroke="#f1bb91" stroke-width="11" stroke-linecap="round" fill="none"/><path d="m151 91 26-23 7 8-25 31" stroke="#f1bb91" stroke-width="11" stroke-linecap="round" fill="none"/>
+        <path d="m119 124-22 36 9 7 33-31" stroke="#f1bb91" stroke-width="13" stroke-linecap="round" fill="none"/><path d="m153 125 21 28 12-4-14-42" stroke="#f1bb91" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <path d="m97 163-14 13 22 5 8-12" fill="#e9f5ed"/><path d="m174 149 20 6-5 10-20-3" fill="#e9f5ed"/>
+        <path d="M119 45q4-4 8 0m10 0q4-4 8 0" stroke="#26483e" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M128 59q7 7 14 0" stroke="#9a5749" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       </g>
       <g class="pulse"><path d="M197 105c6-10 21-6 21 6 0 9-11 15-21 24-10-9-21-15-21-24 0-12 15-16 21-6Z" fill="#ffcfb8"/></g>
       <path d="M30 191q11-10 22 0m-13-12q11-10 22 0" stroke="#bdebd0" stroke-width="4" fill="none" stroke-linecap="round"/>
@@ -114,11 +65,8 @@ button{font:inherit;cursor:pointer}
 
   <section id="start" class="card">
     <h2>準備好接受挑戰未？</h2>
-    <p class="muted" style="margin:7px 0 0">每次挑戰會有 10 條問題。選擇「迷思」或「事實」，即時看看答案及物理治療師的小貼士！</p>
-    <div class="intro-grid">
-      <div class="mini"><strong>🎯 10 條問題</strong><span>認識運動與健康體重管理</span></div>
-      <div class="mini"><strong>💡 即時解說</strong><span>答完即知道原因</span></div>
-    </div>
+    <p class="muted" style="margin:7px 0 0">今次挑戰有 10 條問題。選擇「迷思」或「事實」，即時看看答案及物理治療師的小貼士！</p>
+    <div class="intro-grid"><div class="mini"><strong>🎯 10 條問題</strong><span>認識運動與健康體重管理</span></div><div class="mini"><strong>💡 即時解說</strong><span>答完即知道原因</span></div></div>
     <button class="primary" id="startBtn">開始挑戰 →</button>
     <p class="small-note">本問答只作一般健康教育，並非個人醫療建議。運動應按個人健康狀況及能力調整。</p>
   </section>
@@ -134,22 +82,16 @@ button{font:inherit;cursor:pointer}
   </section>
 
   <section id="result" class="card hidden" aria-live="polite">
-    <span class="result-badge">🎉 挑戰完成</span>
-    <h2 style="font-size:25px;margin:13px 0 5px">你的挑戰成績</h2>
-    <div class="score" id="finalScore">0/10</div>
-    <p id="resultMessage" class="muted"></p>
+    <span class="result-badge">🎉 挑戰完成</span><h2 style="font-size:25px;margin:13px 0 5px">你的挑戰成績</h2>
+    <div class="score" id="finalScore">0/10</div><p id="resultMessage" class="muted"></p>
     <div class="takeaway"><strong>🌱 記住：每一步都計數！</strong>一般成年人每星期應累積 150–300 分鐘中等強度帶氧活動，並每星期至少 2 天進行肌肉強化活動。由適合自己的程度開始，循序漸進。</div>
-    <button class="primary" id="againBtn" style="margin-top:18px">再挑戰一次 ↻</button>
-    <p class="small-note">你的答案不會被收集或儲存。</p>
+    <button class="primary" id="againBtn" style="margin-top:18px">再挑戰一次 ↻</button><p class="small-note">你的答案不會被收集或儲存。</p>
   </section>
 
   <section class="card">
     <h2 style="font-size:19px">📌 健康運動小知識</h2>
     <p class="muted" style="font-size:13px;margin:5px 0 13px">以下建議適用於一般成年人；有長期病患或特殊健康需要人士，應按專業意見調整運動。</p>
-    <div class="intro-grid">
-      <div class="mini"><strong style="font-size:21px;color:#176b55">150–300 分鐘</strong><span>每星期中等強度帶氧活動</span></div>
-      <div class="mini"><strong style="font-size:21px;color:#176b55">每星期 2 天或以上</strong><span>肌肉強化活動</span></div>
-    </div>
+    <div class="intro-grid"><div class="mini"><strong style="font-size:21px;color:#176b55">150–300 分鐘</strong><span>每星期中等強度帶氧活動</span></div><div class="mini"><strong style="font-size:21px;color:#176b55">每星期 2 天或以上</strong><span>肌肉強化活動</span></div></div>
     <div class="sources"><strong>參考資料</strong><ul>
       <li>世界衞生組織（WHO）。<a href="https://www.who.int/publications/i/item/9789240015128" target="_blank" rel="noopener">身體活動及靜態行為指引（2020）</a>。</li>
       <li>美國運動醫學會（ACSM）。<a href="https://pubmed.ncbi.nlm.nih.gov/39277776/" target="_blank" rel="noopener">成人身體活動與過重及脂肪量共識聲明（2024）</a>。</li>
@@ -179,7 +121,7 @@ function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Mat
 function confetti(){const holder=$('confetti');holder.innerHTML='';for(let i=0;i<35;i++){const p=document.createElement('i');p.style.left=(Math.random()*100)+'%';p.style.background=['#176b55','#ffd36f','#f29a78','#82c9a8'][i%4];p.style.animationDelay=(Math.random()*.35)+'s';holder.appendChild(p)}setTimeout(()=>holder.innerHTML='',1700)}
 function begin(){round=shuffle(bank);pos=0;score=0;$('start').classList.add('hidden');$('result').classList.add('hidden');$('quiz').classList.remove('hidden');render();$('quiz').scrollIntoView({behavior:'smooth',block:'start'})}
 function render(){locked=false;const item=round[pos];$('progressText').textContent='第 '+(pos+1)+' 題，共 10 題';$('scoreText').textContent='得分：'+score;$('progressBar').style.width=(pos/10*100)+'%';$('qNumber').textContent='問題 '+(pos+1);$('questionText').textContent=item.q;$('qEmoji').textContent=item.emoji;$('feedback').classList.add('hidden');$('feedback').classList.remove('bad');$('nextBtn').classList.add('hidden');['mythBtn','factBtn'].forEach(id=>{const b=$(id);b.disabled=false;b.classList.remove('correct','wrong')})}
-function answer(choice){if(locked)return;locked=true;const item=round[pos];const good=choice===item.a;if(good){score++;confetti()}$('scoreText').textContent='得分：'+score;const chosen=$(choice==='迷思'?'mythBtn':'factBtn');const correct=$(item.a==='迷思'?'mythBtn':'factBtn');correct.classList.add('correct');if(!good)chosen.classList.add('wrong');$('mythBtn').disabled=true;$('factBtn').disabled=true;$('feedbackTitle').textContent=good?'答對了！🎉':'差一點！一起學習：';$('feedbackText').textContent=item.e;$('feedbackTip').textContent=item.tip;$('feedback').classList.remove('hidden');if(!good)$('feedback').classList.add('bad');$('nextBtn').textContent=pos===9?'查看成績 →':'下一題 →';$('nextBtn').classList.remove('hidden')}
+function answer(choice){if(locked)return;locked=true;const item=round[pos];const good=choice===item.a;if(good)score++;$('scoreText').textContent='得分：'+score;const chosen=$(choice==='迷思'?'mythBtn':'factBtn');const correct=$(item.a==='迷思'?'mythBtn':'factBtn');correct.classList.add('correct');if(!good)chosen.classList.add('wrong');$('mythBtn').disabled=true;$('factBtn').disabled=true;$('feedbackTitle').textContent=good?'答對了！🎉':'差一點！一起學習：';$('feedbackText').textContent=item.e;$('feedbackTip').textContent=item.tip;$('feedback').classList.remove('hidden');if(!good)$('feedback').classList.add('bad');$('nextBtn').textContent=pos===9?'查看成績 →':'下一題 →';$('nextBtn').classList.remove('hidden');if(good)confetti()}
 function next(){if(pos<9){pos++;render();$('quiz').scrollIntoView({behavior:'smooth',block:'start'})}else{$('quiz').classList.add('hidden');$('result').classList.remove('hidden');$('progressBar').style.width='100%';$('finalScore').textContent=score+'/10';let m=score===10?'太厲害了！你是運動知識達人！':score>=7?'做得好！你對健康運動有相當認識。':score>=4?'不錯呀！繼續認識運動，健康知識日日進步。':'多謝參加！每答一題，都是建立健康習慣的好開始。';$('resultMessage').textContent=m;$('result').scrollIntoView({behavior:'smooth',block:'start'});confetti()}}
 $('startBtn').addEventListener('click',begin);$('againBtn').addEventListener('click',begin);$('mythBtn').addEventListener('click',()=>answer('迷思'));$('factBtn').addEventListener('click',()=>answer('事實'));$('nextBtn').addEventListener('click',next);
 </script>
