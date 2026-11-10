@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b35">
+<meta name="description" content="A quick, evidence-informed exercise and healthy-weight quiz from physiotherapy." />
+<title>Exercise Myth or Fact?</title>
+<style>
+:root{--ink:#17332f;--muted:#61736e;--green:#176b55;--mint:#e6f4ed;--cream:#fbfaf5;--gold:#f4be55;--line:#dce7e0;--red:#a64b3f;--white:#fff;--shadow:0 16px 40px rgba(20,55,46,.10)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#e9f4ed 0,#f8faf7 360px,var(--cream) 100%);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+.wrap{width:min(760px,calc(100% - 28px));margin:0 auto;padding:26px 0 40px}.brand{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.brandmark{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:.02em}.mark{width:34px;height:34px;border-radius:11px;background:var(--green);color:white;display:grid;place-items:center;font-size:19px}.tag{font-size:12px;color:var(--green);background:#d9eee3;padding:6px 10px;border-radius:99px;font-weight:700}
+.hero{background:var(--green);color:#fff;border-radius:26px;padding:26px 25px 24px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:210px;height:210px;border-radius:50%;background:rgba(255,255,255,.07);right:-65px;top:-90px}.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#c4e8d4;font-weight:800}.hero h1{font-size:clamp(34px,7vw,54px);line-height:1.02;letter-spacing:-.045em;margin:12px 0}.hero p{max-width:550px;color:#e3f2e9;margin:0;font-size:16px}.hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.hero-pills span{border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:6px 10px;font-size:12px;color:#f2faf5}
+.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:22px;margin-top:18px;box-shadow:0 8px 25px rgba(20,55,46,.05)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.mini{background:#f2f8f3;border-radius:15px;padding:13px}.mini strong{display:block;font-size:14px}.mini span{font-size:12px;color:var(--muted)}
+button{font:inherit;cursor:pointer;border:0}.primary{width:100%;padding:15px 18px;background:var(--gold);color:#352a13;font-weight:850;border-radius:14px;font-size:16px;box-shadow:0 4px 0 #d39e3a}.primary:active{transform:translateY(2px);box-shadow:0 2px 0 #d39e3a}.secondary{background:#eff5f0;color:var(--green);font-weight:750;padding:12px 15px;border-radius:12px}.small-note{font-size:12px;color:var(--muted);margin:12px 0 0}.hidden{display:none!important}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;font-weight:750;color:var(--muted)}.bar{height:8px;border-radius:99px;background:#edf2ee;margin:12px 0 20px;overflow:hidden}.bar>div{height:100%;width:0;background:var(--green);border-radius:99px;transition:width .25s}.q-label{display:inline-block;color:var(--green);background:var(--mint);font-weight:800;font-size:12px;padding:6px 10px;border-radius:99px}.question{font-size:clamp(22px,4.7vw,29px);line-height:1.25;letter-spacing:-.025em;margin:17px 0 22px;font-weight:800}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{border:2px solid var(--line);background:white;color:var(--ink);padding:17px 12px;border-radius:15px;font-size:18px;font-weight:850;transition:.15s}.answer:hover:not(:disabled){border-color:var(--green);background:#f5fbf7}.answer:disabled{cursor:default;opacity:1}.answer.correct{border-color:#23845e;background:#e8f6ee;color:#14583d}.answer.wrong{border-color:#c66b5d;background:#fff0ed;color:#81372e}.feedback{border-radius:15px;padding:15px;margin-top:17px;background:#f1f7f2;border-left:4px solid var(--green)}.feedback .result{font-weight:850;margin-bottom:4px}.feedback p{margin:0;color:#405c53;font-size:14px}.nav{display:flex;gap:10px;margin-top:18px}.nav button{flex:1}.nav .primary{box-shadow:none}.score{font-size:54px;line-height:1;font-weight:900;letter-spacing:-.05em;color:var(--green)}.result-badge{display:inline-block;font-size:12px;font-weight:800;border-radius:99px;background:#e5f4eb;color:#176344;padding:6px 10px}.takeaway{background:#fff7e5;border:1px solid #f3dfac;padding:16px;border-radius:16px;margin-top:16px}.takeaway strong{display:block}.sources{font-size:13px;color:var(--muted)}.sources li{margin:8px 0}.sources a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:3px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 8px}.footer strong{color:var(--green)}
+@media(max-width:520px){.wrap{width:min(100% - 20px,760px);padding-top:14px}.hero{padding:23px 19px;border-radius:21px}.card{padding:18px;border-radius:19px}.intro-grid{gap:8px}.mini{padding:11px}.answers{gap:9px}.answer{padding:16px 8px;font-size:17px}.brand{margin-bottom:12px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand"><div class="brandmark"><span class="mark">+</span><span>PHYSIOTHERAPY • PUBLIC EDUCATION</span></div><span class="tag">3-minute challenge</span></div>
+  <header class="hero">
+    <div class="eyebrow">Move more • Feel better</div>
+    <h1>Exercise<br>Myth or Fact?</h1>
+    <p>How much do you know about exercise and healthy weight management? Test yourself, bust a myth and take away one practical tip.</p>
+    <div class="hero-pills"><span>5 questions</span><span>Instant explanations</span><span>No sign-up</span></div>
+  </header>
+
+  <section id="start" class="card">
+    <h2 style="margin:0;font-size:23px;letter-spacing:-.02em">Ready to test your knowledge?</h2>
+    <p style="color:var(--muted);margin:7px 0 0">Answer five questions selected at random. Choose <strong>MYTH</strong> or <strong>FACT</strong>, then read the explanation from our physiotherapy team.</p>
+    <div class="intro-grid"><div class="mini"><strong>01 · Make a choice</strong><span>Go with what you think is right.</span></div><div class="mini"><strong>02 · Learn why</strong><span>See a short evidence-based explanation.</span></div></div>
+    <button class="primary" id="startBtn">Start the challenge →</button>
+    <p class="small-note">For general adult education. The right exercise plan depends on each person's health and abilities.</p>
+  </section>
+
+  <section id="quiz" class="card hidden" aria-live="polite">
+    <div class="quiz-top"><span id="progressText">QUESTION 1 OF 5</span><span id="scoreText">Score: 0</span></div>
+    <div class="bar"><div id="progressBar"></div></div>
+    <span class="q-label" id="qNumber">QUESTION 1</span>
+    <h2 class="question" id="questionText"></h2>
+    <div class="answers"><button class="answer" id="mythBtn">MYTH</button><button class="answer" id="factBtn">FACT</button></div>
+    <div class="feedback hidden" id="feedback" role="status"><div class="result" id="feedbackTitle"></div><p id="feedbackText"></p></div>
+    <div class="nav"><button class="secondary hidden" id="nextBtn">Next question →</button></div>
+  </section>
+
+  <section id="result" class="card hidden" aria-live="polite">
+    <span class="result-badge">CHALLENGE COMPLETED</span>
+    <h2 style="font-size:26px;margin:13px 0 5px">Your result</h2>
+    <div class="score" id="finalScore">0/5</div>
+    <p id="resultMessage" style="color:var(--muted)"></p>
+    <div class="takeaway"><strong>Remember: Every move counts.</strong> Aim for 150–300 minutes of moderate-intensity aerobic activity each week, and include muscle-strengthening activities on at least two days per week. Start at a level that suits you and build up gradually.</div>
+    <button class="primary" id="againBtn" style="margin-top:18px">Try another 5 questions ↻</button>
+    <p class="small-note">Your answers are not collected or stored.</p>
+  </section>
+
+  <section class="card">
+    <h2 style="font-size:20px;margin:0 0 7px">A few evidence-based facts</h2>
+    <p style="color:var(--muted);margin:0 0 12px">These recommendations are for general adults. Some people may need an adapted exercise plan.</p>
+    <div class="intro-grid"><div class="mini"><strong>150–300 min</strong><span>Moderate aerobic activity per week</span></div><div class="mini"><strong>2+ days</strong><span>Muscle-strengthening activity per week</span></div></div>
+    <div class="sources"><strong>Sources</strong><ul>
+      <li>World Health Organization. <a href="https://www.who.int/publications/i/item/9789240015128" target="_blank" rel="noopener">Guidelines on Physical Activity and Sedentary Behaviour (2020)</a>.</li>
+      <li>American College of Sports Medicine. <a href="https://pubmed.ncbi.nlm.nih.gov/39277776/" target="_blank" rel="noopener">Physical Activity and Excess Body Weight and Adiposity for Adults (2024)</a>.</li>
+      <li>US Centers for Disease Control and Prevention. <a href="https://www.cdc.gov/physical-activity-basics/measuring/" target="_blank" rel="noopener">How to Measure Physical Activity Intensity</a>.</li>
+      <li>US Centers for Disease Control and Prevention. <a href="https://www.cdc.gov/healthy-weight-growth/physical-activity/index.html" target="_blank" rel="noopener">Physical Activity and Your Weight and Health</a>.</li>
+      <li>Resistance exercise and dietary weight loss. <a href="https://pubmed.ncbi.nlm.nih.gov/40909191/" target="_blank" rel="noopener">Systematic review and meta-analysis (2025)</a>.</li>
+    </ul></div>
+  </section>
+  <div class="footer"><strong>Every Move Counts</strong><br>Physiotherapy Public Education Booth<br>Move more. Start small. Build consistency.</div>
+</main>
+<script>
+const bank=[
+{q:"You must exercise continuously for at least 30 minutes to get health benefits.",a:"MYTH",e:"Shorter bouts of physical activity also count towards your weekly activity target. Every move counts."},
+{q:"Adults should aim for at least 150 minutes of moderate-intensity aerobic exercise each week.",a:"FACT",e:"WHO recommends 150–300 minutes of moderate activity per week, or 75–150 minutes of vigorous activity."},
+{q:"You can specifically burn belly fat by doing more sit-ups.",a:"MYTH",e:"Exercise cannot selectively remove fat from one particular body area. Overall fat loss involves the whole body."},
+{q:"Strength training should be included at least 2 days per week.",a:"FACT",e:"WHO recommends muscle-strengthening activities involving all major muscle groups on at least 2 days per week."},
+{q:"You need to sweat a lot for exercise to be effective.",a:"MYTH",e:"Sweating is mainly how the body regulates temperature. It does not indicate how much body fat you have lost."},
+{q:"Brisk walking can count as moderate-intensity physical activity.",a:"FACT",e:"At moderate intensity, breathing increases but you can still talk, although singing becomes difficult."},
+{q:"Resistance training can help preserve muscle mass during weight loss.",a:"FACT",e:"Resistance exercise helps preserve fat-free mass and maintain muscle strength while losing weight."},
+{q:"Exercise is beneficial only when it leads to weight loss.",a:"MYTH",e:"Exercise improves cardiovascular fitness, blood pressure, insulin sensitivity, physical function and mental well-being, even without weight reduction."},
+{q:"You must perform vigorous exercise to reduce body weight.",a:"MYTH",e:"Moderate-intensity activities such as brisk walking can contribute to weight management. Choose an intensity you can sustain."},
+{q:"Replacing some sitting time with light physical activity can benefit your health.",a:"FACT",e:"Even light activity is preferable to prolonged sedentary behaviour. Try standing, walking or moving during breaks."},
+{q:"Older adults should include balance and strength activities in their exercise routine.",a:"FACT",e:"WHO recommends multicomponent physical activities emphasising balance and strength on 3 or more days per week for older adults."},
+{q:"People who are not used to exercising should start with small amounts and gradually increase their activity.",a:"FACT",e:"WHO advises inactive adults to start with small amounts and gradually increase frequency, intensity and duration."},
+{q:"High-intensity interval training (HIIT) is always better than moderate exercise for weight reduction.",a:"MYTH",e:"The 2024 ACSM consensus statement does not find HIIT superior to moderate-to-vigorous physical activity for body-weight regulation."},
+{q:"Cycling or water exercise can be suitable alternatives for people who find weight-bearing exercise uncomfortable.",a:"FACT",e:"Non-weight-bearing exercise can help people remain active while reducing loading through the lower limbs, according to individual tolerance."},
+{q:"Exercise alone is always sufficient for weight reduction, regardless of diet.",a:"MYTH",e:"Weight reduction generally requires an energy deficit. Physical activity and appropriate dietary changes work together."}
+];
+let round=[],pos=0,score=0,locked=false;
+const $=id=>document.getElementById(id);
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function begin(){round=shuffle(bank).slice(0,5);pos=0;score=0;$('start').classList.add('hidden');$('result').classList.add('hidden');$('quiz').classList.remove('hidden');render()}
+function render(){locked=false;const item=round[pos];$('progressText').textContent=`QUESTION ${pos+1} OF 5`;$('scoreText').textContent=`Score: ${score}`;$('progressBar').style.width=`${pos/5*100}%`;$('qNumber').textContent=`QUESTION ${pos+1}`;$('questionText').textContent=item.q;$('feedback').classList.add('hidden');$('nextBtn').classList.add('hidden');['mythBtn','factBtn'].forEach(id=>{const b=$(id);b.disabled=false;b.classList.remove('correct','wrong')})}
+function answer(choice){if(locked)return;locked=true;const item=round[pos];const good=choice===item.a;if(good)score++;$('scoreText').textContent=`Score: ${score}`;const chosen=$(choice==='MYTH'?'mythBtn':'factBtn');const correct=$(item.a==='MYTH'?'mythBtn':'factBtn');correct.classList.add('correct');if(!good)chosen.classList.add('wrong');$('mythBtn').disabled=true;$('factBtn').disabled=true;$('feedbackTitle').textContent=good?'That’s right!':'Good try — here’s the fact:';$('feedbackText').textContent=item.e;$('feedback').classList.remove('hidden');$('nextBtn').textContent=pos===4?'See my result →':'Next question →';$('nextBtn').classList.remove('hidden')}
+function next(){if(pos<4){pos++;render()}else{ $('quiz').classList.add('hidden');$('result').classList.remove('hidden');$('progressBar').style.width='100%';$('finalScore').textContent=`${score}/5`;let m=score===5?'Excellent! You are an exercise myth-buster.':score>=3?'Well done! You know quite a bit about staying active.':'Thanks for taking part! Every question is a chance to learn something useful.';$('resultMessage').textContent=m;}}
+$('startBtn').addEventListener('click',begin);$('againBtn').addEventListener('click',begin);$('mythBtn').addEventListener('click',()=>answer('MYTH'));$('factBtn').addEventListener('click',()=>answer('FACT'));$('nextBtn').addEventListener('click',next);
+</script>
+</body>
+</html>
