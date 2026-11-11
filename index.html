@@ -26,7 +26,7 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
 .answers{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:20px}.answer{border:2px solid var(--line);background:white;color:var(--ink);padding:17px 10px;border-radius:15px;font-size:19px;font-weight:900;transition:.15s}.answer:hover:not(:disabled){border-color:var(--green);background:#f5fbf7}.answer:disabled{cursor:default;opacity:1}.answer.correct{border-color:#23845e;background:#e8f6ee;color:#14583d}.answer.wrong{border-color:#c66b5d;background:#fff0ed;color:#81372e}
 .feedback{border-radius:15px;padding:15px;margin-top:17px;background:#f1f7f2;border-left:4px solid var(--green);animation:appear .25s ease-out}.feedback.bad{background:#fff5ed;border-left-color:#cb8540}.feedback .result{font-weight:900;margin-bottom:4px;font-size:16px}.feedback p{margin:0;color:#405c53;font-size:14px}.tip{background:#fff7e5;border:1px solid #f3dfac;padding:12px 14px;border-radius:13px;margin-top:12px;font-size:13px}
 .nav{display:flex;gap:10px;margin-top:18px}.nav button{flex:1}.nav .primary{box-shadow:none}@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
-.score{font-size:58px;line-height:1;font-weight:950;letter-spacing:-.05em;color:var(--green);margin:12px 0}.result-badge{display:inline-block;font-size:12px;font-weight:900;border-radius:99px;background:#e5f4eb;color:#176344;padding:6px 10px}.takeaway{background:#fff7e5;border:1px solid #f3dfac;padding:16px;border-radius:16px;margin-top:16px}.takeaway strong{display:block;font-size:17px}
+.timer-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}.timer-label{font-size:12px;font-weight:850;color:var(--muted)}.timer-pill{display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:99px;background:#fff4dc;color:#805719;font-weight:950;font-variant-numeric:tabular-nums}.timer-pill.urgent{background:#ffe9e5;color:#a43f31;animation:pulse .55s infinite}.timer-track{height:7px;flex:1;background:#edf2ee;border-radius:99px;overflow:hidden}.timer-track span{display:block;height:100%;width:100%;background:#e3ad45;transition:width .1s linear}.leaderboard{margin-top:17px;padding:15px;background:#f3f8f4;border-radius:16px}.leaderboard h3{margin:0 0 9px;font-size:17px}.leaderboard-list{list-style:none;padding:0;margin:0}.leaderboard-list li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #dce9df;font-size:13px}.leaderboard-list li:last-child{border:0}.name-row{display:flex;gap:8px;margin-top:12px}.name-row input{min-width:0;flex:1;border:1px solid var(--line);border-radius:11px;padding:11px;font:inherit}.name-row button{border:0;border-radius:11px;padding:10px 13px;background:var(--green);color:white;font-weight:800}.gif-box{display:flex;justify-content:center;margin:15px auto 0;max-width:260px;overflow:hidden;border-radius:16px}.gif-box .tenor-gif-embed{max-width:100%;min-width:180px}.score{font-size:58px;line-height:1;font-weight:950;letter-spacing:-.05em;color:var(--green);margin:12px 0}.result-badge{display:inline-block;font-size:12px;font-weight:900;border-radius:99px;background:#e5f4eb;color:#176344;padding:6px 10px}.takeaway{background:#fff7e5;border:1px solid #f3dfac;padding:16px;border-radius:16px;margin-top:16px}.takeaway strong{display:block;font-size:17px}
 .sources{font-size:12px;color:var(--muted)}.sources li{margin:9px 0}.sources a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:3px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:20px 8px}.footer strong{color:var(--green)}
 .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}.confetti i{position:absolute;top:-15px;width:9px;height:14px;border-radius:2px;animation:fall 1.25s ease-in forwards}@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:.2}}
 @media(max-width:520px){.wrap{width:min(100% - 18px,760px);padding-top:12px}.hero{padding:21px 18px;border-radius:22px;grid-template-columns:1fr .58fr;gap:0}.hero h1{font-size:clamp(31px,8vw,43px)}.hero p{font-size:13px}.art{width:120%;margin-left:-10%}.card{padding:17px;border-radius:19px}.intro-grid{gap:8px}.mini{padding:10px}.answers{gap:9px}.answer{padding:16px 8px;font-size:17px}.q-emoji{width:50px;height:50px;font-size:28px}}
@@ -67,6 +67,7 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
     <h2>準備好接受挑戰未？</h2>
     <p class="muted" style="margin:7px 0 0">今次挑戰有 10 條問題。選擇「迷思」或「事實」，即時看看答案及物理治療師的小貼士！</p>
     <div class="intro-grid"><div class="mini"><strong>🎯 10 條問題</strong><span>認識運動與健康體重管理</span></div><div class="mini"><strong>💡 即時解說</strong><span>答完即知道原因</span></div></div>
+    <div class="gif-box"><div class="tenor-gif-embed" data-postid="12008319" data-share-method="host" data-aspect-ratio="0.578" data-width="100%"><a href="https://tenor.com/view/funny-exercise-gym-work-out-lol-omg-gif-12008319">Funny exercise GIF</a></div></div>
     <button class="primary" id="startBtn">開始挑戰 →</button>
     <p class="small-note">本問答只作一般健康教育，並非個人醫療建議。運動應按個人健康狀況及能力調整。</p>
   </section>
@@ -74,6 +75,7 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
   <section id="quiz" class="card hidden" aria-live="polite">
     <div class="quiz-top"><span id="progressText">第 1 題，共 10 題</span><span id="scoreText">得分：0</span></div>
     <div class="bar"><div id="progressBar"></div></div>
+    <div class="timer-row"><span class="timer-label">⏳ 限時作答</span><div class="timer-track"><span id="timerTrack"></span></div><span class="timer-pill" id="timerPill">10 秒</span></div>
     <div class="q-head"><div class="q-emoji" id="qEmoji" aria-hidden="true">🚶</div><div><span class="q-label" id="qNumber">問題 1</span><div class="muted" style="font-size:12px;margin-top:5px">你認為以下說法是迷思還是事實？</div></div></div>
     <h2 class="question" id="questionText"></h2>
     <div class="answers"><button class="answer" id="mythBtn">🙅 迷思</button><button class="answer" id="factBtn">✅ 事實</button></div>
@@ -85,45 +87,53 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
     <span class="result-badge">🎉 挑戰完成</span><h2 style="font-size:25px;margin:13px 0 5px">你的挑戰成績</h2>
     <div class="score" id="finalScore">0/10</div><p id="resultMessage" class="muted"></p>
     <div class="takeaway"><strong>🌱 記住：每一步都計數！</strong>一般成年人每星期應累積 150–300 分鐘中等強度帶氧活動，並每星期至少 2 天進行肌肉強化活動。由適合自己的程度開始，循序漸進。</div>
-    <button class="primary" id="againBtn" style="margin-top:18px">再挑戰一次 ↻</button><p class="small-note">你的答案不會被收集或儲存。</p>
+    <div class="leaderboard"><h3>🏆 今部手機／平板排行榜</h3><p class="small-note" style="margin:0 0 8px">輸入暱稱，保存你的成績。排行榜只會保存在目前這部裝置的瀏覽器。</p><div class="name-row"><input id="playerName" maxlength="12" placeholder="輸入暱稱（最多 12 字）" aria-label="參加者暱稱"><button id="saveScoreBtn">保存成績</button></div><ol class="leaderboard-list" id="leaderboardList"></ol><p class="small-note" id="leaderboardNote"></p></div><button class="primary" id="againBtn" style="margin-top:18px">再挑戰一次 ↻</button>
   </section>
 
   <section class="card">
     <h2 style="font-size:19px">📌 健康運動小知識</h2>
     <p class="muted" style="font-size:13px;margin:5px 0 13px">以下建議適用於一般成年人；有長期病患或特殊健康需要人士，應按專業意見調整運動。</p>
     <div class="intro-grid"><div class="mini"><strong style="font-size:21px;color:#176b55">150–300 分鐘</strong><span>每星期中等強度帶氧活動</span></div><div class="mini"><strong style="font-size:21px;color:#176b55">每星期 2 天或以上</strong><span>肌肉強化活動</span></div></div>
-    <div class="sources"><strong>參考資料</strong><ul>
-      <li>世界衞生組織（WHO）。<a href="https://www.who.int/publications/i/item/9789240015128" target="_blank" rel="noopener">身體活動及靜態行為指引（2020）</a>。</li>
-      <li>美國運動醫學會（ACSM）。<a href="https://pubmed.ncbi.nlm.nih.gov/39277776/" target="_blank" rel="noopener">成人身體活動與過重及脂肪量共識聲明（2024）</a>。</li>
-      <li>美國疾病控制及預防中心（CDC）。<a href="https://www.cdc.gov/physical-activity-basics/measuring/" target="_blank" rel="noopener">如何量度身體活動強度</a>。</li>
-      <li>美國疾病控制及預防中心（CDC）。<a href="https://www.cdc.gov/healthy-weight-growth/physical-activity/index.html" target="_blank" rel="noopener">身體活動、體重與健康</a>。</li>
-      <li>阻力運動與飲食減重的系統性文獻回顧及統合分析（2025）。<a href="https://pubmed.ncbi.nlm.nih.gov/40909191/" target="_blank" rel="noopener">PubMed 研究資料</a>。</li>
+    <div class="sources"><strong>想了解更多？</strong><ul>
+      <li><a href="https://www.who.int/publications/i/item/9789240015128" target="_blank" rel="noopener">世界衞生組織：身體活動建議</a></li>
+      <li><a href="https://www.cdc.gov/physical-activity-basics/measuring/" target="_blank" rel="noopener">美國疾病控制及預防中心：運動強度小知識</a></li>
+      
+      <li><a href="https://www.cdc.gov/healthy-weight-growth/physical-activity/index.html" target="_blank" rel="noopener">美國疾病控制及預防中心：運動與健康體重</a></li>
+      
     </ul></div>
   </section>
   <div class="footer"><strong>動多啲．健康啲</strong><br>物理治療健康教育活動<br>由小習慣開始，建立持續運動的生活。</div>
 </main>
+<script src="https://tenor.com/embed.js" async></script>
 <script>
 const bank=[
-{q:"成年人每星期應累積至少 150 分鐘中等強度帶氧活動。",a:"事實",emoji:"🚶",e:"世界衞生組織建議成年人每星期進行 150–300 分鐘中等強度帶氧活動，或 75–150 分鐘高強度活動。",tip:"小貼士：可以分開不同日子進行，例如每日快步行 30 分鐘，每星期 5 日。"},
-{q:"每星期至少兩天進行肌肉強化運動，有助維持肌肉力量及身體功能。",a:"事實",emoji:"💪",e:"WHO 建議成年人每星期至少 2 天進行涉及主要肌肉群的肌肉強化活動。",tip:"小貼士：深蹲、坐站練習、彈力帶及適當重量訓練都可以是選擇。"},
-{q:"每次運動必須連續做滿 10 分鐘，才會計算入每星期的活動量。",a:"迷思",emoji:"⏱️",e:"現行 WHO 指引已不再要求每次活動最少連續 10 分鐘。短時間的身體活動同樣可以累積計算。",tip:"小貼士：即使每次只活動 5–10 分鐘，亦可以逐步增加每日活動量。"},
-{q:"多做仰臥起坐，就可以針對性地燃燒肚腩脂肪。",a:"迷思",emoji:"🎯",e:"運動不能選擇性地減去身體某一個部位的脂肪。仰臥起坐主要訓練腹部肌肉，並不代表能單獨消除腹部脂肪。",tip:"小貼士：整體體脂管理需要配合持續活動、飲食及生活習慣調整。"},
-{q:"流汗越多，代表燃燒的脂肪越多。",a:"迷思",emoji:"💦",e:"流汗主要是身體調節體溫的方法。運動後短暫的體重下降可能來自水分流失，並不等於減去了相同重量的脂肪。",tip:"小貼士：運動時要適量補充水分，不要以流汗多少衡量運動成效。"},
-{q:"中等強度運動時，通常仍然可以說話，但難以舒服地唱歌。",a:"事實",emoji:"🎵",e:"這是常用的「談話測試」：中等強度時呼吸會加快，但仍可交談；若只能說幾個字便要停下來呼吸，可能已達高強度。",tip:"小貼士：快步行時可以試試講一句完整說話，感受自己的運動強度。"},
-{q:"即使體重沒有下降，規律運動仍然可以改善心肺及代謝健康。",a:"事實",emoji:"❤️",e:"運動的好處不限於體重變化，亦有助改善心肺適能、血壓、胰島素敏感度及身體功能。",tip:"小貼士：除了磅數，也可留意體能、睡眠、精神及日常活動能力的改變。"},
-{q:"高強度間歇訓練（HIIT）一定比中等強度運動更有效控制體重。",a:"迷思",emoji:"⚡",e:"ACSM 2024 共識聲明指出，HIIT 在體重調節方面並未顯示比中至高強度持續活動更優勝。",tip:"小貼士：選擇自己喜歡、能安全持續的運動，比盲目追求高強度更實際。"},
-{q:"平日較少運動的人，應由少量活動開始，再按能力逐步增加。",a:"事實",emoji:"🌱",e:"WHO 建議較少活動的人由小量開始，逐步增加活動的頻率、強度及時間。",tip:"小貼士：先從每日多走一段路、行樓梯或短時間散步開始。"},
-{q:"減重期間加入阻力訓練，有助減少瘦體重流失及維持肌肉力量。",a:"事實",emoji:"🏋️",e:"2025 年系統性文獻回顧及統合分析指出，在飲食減重期間加入阻力運動，有助保留瘦體重並改善肌力。",tip:"小貼士：減重不只看體重數字，也要重視肌肉力量及日常功能。"}
+{q:"成年人每星期應累積至少 150 分鐘中等強度帶氧活動。",a:"事實",emoji:"🚶",e:"研究及健康指引建議，成年人每星期可累積 150–300 分鐘中等強度帶氧活動，或做相若的高強度活動。",tip:"小貼士：可以分開不同日子進行，例如每日快步行 30 分鐘，每星期 5 日。"},
+{q:"每星期至少兩天進行肌肉強化運動，有助維持肌肉力量及身體功能。",a:"事實",emoji:"💪",e:"研究顯示，定期做肌肉強化運動，有助維持肌肉力量及日常活動能力。一般建議每星期至少做 2 天。",tip:"小貼士：深蹲、坐站練習、彈力帶及適當重量訓練都可以是選擇。"},
+{q:"每次運動必須連續做滿 10 分鐘，才會計算入每星期的活動量。",a:"迷思",emoji:"⏱️",e:"研究及現行健康建議都指出，不需要每次運動都做足 10 分鐘。短時間活動一樣可以累積，總比完全不動好！",tip:"小貼士：即使每次只活動 5–10 分鐘，亦可以逐步增加每日活動量。"},
+{q:"多做仰臥起坐，就可以針對性地燃燒肚腩脂肪。",a:"迷思",emoji:"🎯",e:"做仰臥起坐可以鍛鍊腹部肌肉，但身體不會只燃燒肚腩的脂肪。想減脂，仍要配合整體活動量及飲食習慣。",tip:"小貼士：整體體脂管理需要配合持續活動、飲食及生活習慣調整。"},
+{q:"流汗越多，代表燃燒的脂肪越多。",a:"迷思",emoji:"💦",e:"流汗主要是幫身體散熱。運動後輕了幾多，可能只是流失水分，飲返水就會回升，並不代表燒了同等重量的脂肪！",tip:"小貼士：運動時要適量補充水分，不要以流汗多少衡量運動成效。"},
+{q:"中等強度運動時，通常仍然可以說話，但難以舒服地唱歌。",a:"事實",emoji:"🎵",e:"簡單來說，中等強度時你會開始喘氣，但仍然可以講完整句子；如果講幾個字就要停下來抖氣，強度可能已經較高。",tip:"小貼士：快步行時可以試試講一句完整說話，感受自己的運動強度。"},
+{q:"即使體重沒有下降，規律運動仍然可以改善心肺及代謝健康。",a:"事實",emoji:"❤️",e:"研究顯示，規律運動帶來的好處不只反映在磅數上，亦有助心肺健康、血壓、血糖控制及日常活動能力。",tip:"小貼士：除了磅數，也可留意體能、睡眠、精神及日常活動能力的改變。"},
+{q:"高強度間歇訓練（HIIT）一定比中等強度運動更有效控制體重。",a:"迷思",emoji:"⚡",e:"研究顯示，HIIT 並不一定比一般持續運動更有效控制體重。最重要是選擇適合自己、能夠持續的運動方式。",tip:"小貼士：選擇自己喜歡、能安全持續的運動，比盲目追求高強度更實際。"},
+{q:"平日較少運動的人，應由少量活動開始，再按能力逐步增加。",a:"事實",emoji:"🌱",e:"如果平日少運動，研究及健康建議都鼓勵由少量開始，再慢慢增加時間和強度，不用一開始就操到盡！",tip:"小貼士：先從每日多走一段路、行樓梯或短時間散步開始。"},
+{q:"減重期間加入阻力訓練，有助減少瘦體重流失及維持肌肉力量。",a:"事實",emoji:"🏋️",e:"研究顯示，減重時加入阻力訓練，有助保留肌肉及維持力量。所以減重不應只做帶氧運動！",tip:"小貼士：減重不只看體重數字，也要重視肌肉力量及日常功能。"}
 ];
-let round=[],pos=0,score=0,locked=false;
+let round=[],pos=0,score=0,locked=false,timerId=null,timeLeft=10,scoreSaved=false;
 const $=id=>document.getElementById(id);
+const leaderboardKey='exerciseMythFactLeaderboardV1';
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function confetti(){const holder=$('confetti');holder.innerHTML='';for(let i=0;i<35;i++){const p=document.createElement('i');p.style.left=(Math.random()*100)+'%';p.style.background=['#176b55','#ffd36f','#f29a78','#82c9a8'][i%4];p.style.animationDelay=(Math.random()*.35)+'s';holder.appendChild(p)}setTimeout(()=>holder.innerHTML='',1700)}
-function begin(){round=shuffle(bank);pos=0;score=0;$('start').classList.add('hidden');$('result').classList.add('hidden');$('quiz').classList.remove('hidden');render();$('quiz').scrollIntoView({behavior:'smooth',block:'start'})}
-function render(){locked=false;const item=round[pos];$('progressText').textContent='第 '+(pos+1)+' 題，共 10 題';$('scoreText').textContent='得分：'+score;$('progressBar').style.width=(pos/10*100)+'%';$('qNumber').textContent='問題 '+(pos+1);$('questionText').textContent=item.q;$('qEmoji').textContent=item.emoji;$('feedback').classList.add('hidden');$('feedback').classList.remove('bad');$('nextBtn').classList.add('hidden');['mythBtn','factBtn'].forEach(id=>{const b=$(id);b.disabled=false;b.classList.remove('correct','wrong')})}
-function answer(choice){if(locked)return;locked=true;const item=round[pos];const good=choice===item.a;if(good)score++;$('scoreText').textContent='得分：'+score;const chosen=$(choice==='迷思'?'mythBtn':'factBtn');const correct=$(item.a==='迷思'?'mythBtn':'factBtn');correct.classList.add('correct');if(!good)chosen.classList.add('wrong');$('mythBtn').disabled=true;$('factBtn').disabled=true;$('feedbackTitle').textContent=good?'答對了！🎉':'差一點！一起學習：';$('feedbackText').textContent=item.e;$('feedbackTip').textContent=item.tip;$('feedback').classList.remove('hidden');if(!good)$('feedback').classList.add('bad');$('nextBtn').textContent=pos===9?'查看成績 →':'下一題 →';$('nextBtn').classList.remove('hidden');if(good)confetti()}
-function next(){if(pos<9){pos++;render();$('quiz').scrollIntoView({behavior:'smooth',block:'start'})}else{$('quiz').classList.add('hidden');$('result').classList.remove('hidden');$('progressBar').style.width='100%';$('finalScore').textContent=score+'/10';let m=score===10?'太厲害了！你是運動知識達人！':score>=7?'做得好！你對健康運動有相當認識。':score>=4?'不錯呀！繼續認識運動，健康知識日日進步。':'多謝參加！每答一題，都是建立健康習慣的好開始。';$('resultMessage').textContent=m;$('result').scrollIntoView({behavior:'smooth',block:'start'});confetti()}}
-$('startBtn').addEventListener('click',begin);$('againBtn').addEventListener('click',begin);$('mythBtn').addEventListener('click',()=>answer('迷思'));$('factBtn').addEventListener('click',()=>answer('事實'));$('nextBtn').addEventListener('click',next);
+function stopTimer(){if(timerId){clearInterval(timerId);timerId=null}}
+function startTimer(){stopTimer();timeLeft=10;updateTimer();timerId=setInterval(()=>{timeLeft--;updateTimer();if(timeLeft<=0){stopTimer();answer(null)}},1000)}
+function updateTimer(){$('timerPill').textContent=timeLeft+' 秒';$('timerPill').classList.toggle('urgent',timeLeft<=3);$('timerTrack').style.width=(timeLeft/10*100)+'%'}
+function begin(){stopTimer();round=shuffle(bank);pos=0;score=0;scoreSaved=false;$('start').classList.add('hidden');$('result').classList.add('hidden');$('quiz').classList.remove('hidden');render();$('quiz').scrollIntoView({behavior:'smooth',block:'start'})}
+function render(){locked=false;const item=round[pos];$('progressText').textContent='第 '+(pos+1)+' 題，共 10 題';$('scoreText').textContent='得分：'+score;$('progressBar').style.width=(pos/10*100)+'%';$('qNumber').textContent='問題 '+(pos+1);$('questionText').textContent=item.q;$('qEmoji').textContent=item.emoji;$('feedback').classList.add('hidden');$('feedback').classList.remove('bad');$('nextBtn').classList.add('hidden');['mythBtn','factBtn'].forEach(id=>{const b=$(id);b.disabled=false;b.classList.remove('correct','wrong')});startTimer()}
+function answer(choice){if(locked)return;locked=true;stopTimer();const item=round[pos];const timedOut=choice===null;const good=!timedOut&&choice===item.a;if(good)score++;$('scoreText').textContent='得分：'+score;const chosen=choice?$(choice==='迷思'?'mythBtn':'factBtn'):null;const correct=$(item.a==='迷思'?'mythBtn':'factBtn');correct.classList.add('correct');if(chosen&&!good)chosen.classList.add('wrong');$('mythBtn').disabled=true;$('factBtn').disabled=true;$('feedbackTitle').textContent=timedOut?'⏰ 時間到！答案揭曉':good?'答對了！🎉':'差一點！一起學習：';$('feedbackText').textContent=item.e;$('feedbackTip').textContent=item.tip;$('feedback').classList.remove('hidden');if(!good)$('feedback').classList.add('bad');$('nextBtn').textContent=pos===9?'查看成績 →':'下一題 →';$('nextBtn').classList.remove('hidden');if(good)confetti()}
+function getScores(){try{return JSON.parse(localStorage.getItem(leaderboardKey)||'[]')}catch(e){return []}}
+function renderLeaderboard(){const list=$('leaderboardList');list.innerHTML='';const entries=getScores().sort((a,b)=>b.score-a.score||a.date-b.date).slice(0,10);if(!entries.length){list.innerHTML='<li><span>暫時未有紀錄，做第一位上榜者吧！</span><span>🏁</span></li>';return}entries.forEach((entry,i)=>{const li=document.createElement('li');const left=document.createElement('span');const right=document.createElement('strong');left.textContent=(i===0?'🥇 ':i===1?'🥈 ':i===2?'🥉 ':'')+(i+1)+'. '+entry.name;right.textContent=entry.score+'/10';li.append(left,right);list.appendChild(li)})}
+function saveScore(){if(scoreSaved){$('leaderboardNote').textContent='今次成績已經保存。';return}const name=$('playerName').value.trim().slice(0,12)||'匿名玩家';const entries=getScores();entries.push({name,score,date:Date.now()});entries.sort((a,b)=>b.score-a.score||a.date-b.date);try{localStorage.setItem(leaderboardKey,JSON.stringify(entries.slice(0,10)));scoreSaved=true;$('leaderboardNote').textContent='成績已保存！下次挑戰再刷新紀錄吧。';renderLeaderboard()}catch(e){$('leaderboardNote').textContent='此瀏覽器未能儲存排行榜，請檢查私隱設定。'}}
+function next(){if(pos<9){pos++;render();$('quiz').scrollIntoView({behavior:'smooth',block:'start'})}else{stopTimer();$('quiz').classList.add('hidden');$('result').classList.remove('hidden');$('progressBar').style.width='100%';$('finalScore').textContent=score+'/10';let m=score===10?'太厲害了！你是運動知識達人！':score>=7?'做得好！你對健康運動有相當認識。':score>=4?'不錯呀！繼續認識運動，健康知識日日進步。':'多謝參加！每答一題，都是建立健康習慣的好開始。';$('resultMessage').textContent=m;$('playerName').value='';$('leaderboardNote').textContent='';renderLeaderboard();$('result').scrollIntoView({behavior:'smooth',block:'start'});confetti()}}
+$('startBtn').addEventListener('click',begin);$('againBtn').addEventListener('click',begin);$('mythBtn').addEventListener('click',()=>answer('迷思'));$('factBtn').addEventListener('click',()=>answer('事實'));$('nextBtn').addEventListener('click',next);$('saveScoreBtn').addEventListener('click',saveScore);
 </script>
 </body>
 </html>
