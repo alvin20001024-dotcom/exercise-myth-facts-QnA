@@ -31,33 +31,50 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
 .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}.confetti i{position:absolute;top:-15px;width:9px;height:14px;border-radius:2px;animation:fall 1.25s ease-in forwards}@keyframes fall{to{transform:translateY(110vh) rotate(650deg);opacity:.2}}
 @media(max-width:520px){.cartoon-row{gap:6px}.cartoon-card{padding:6px 3px}.cartoon-card strong{font-size:10px}.wrap{width:min(100% - 18px,760px);padding-top:12px}.hero{padding:21px 18px;border-radius:22px;grid-template-columns:minmax(0,1fr) minmax(0,.38fr);gap:8px}.hero h1{font-size:clamp(31px,8vw,43px)}.hero p{font-size:13px}.art{width:100%;max-width:112px;max-height:150px;margin:0;justify-self:end}.card{padding:17px;border-radius:19px}.intro-grid{gap:8px}.mini{padding:10px}.answers{gap:9px}.answer{padding:16px 8px;font-size:17px}.q-emoji{width:50px;height:50px;font-size:28px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Expansion preview */
+.app-layout{display:grid;grid-template-columns:185px minmax(0,1fr);gap:15px;align-items:start}
+.side-nav{position:sticky;top:14px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:0 8px 25px rgba(20,55,46,.05)}
+.side-nav button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;border:0;background:transparent;color:var(--ink);padding:12px 10px;border-radius:12px;font-size:13px;font-weight:850}
+.side-nav button.active{background:var(--mint);color:var(--green)}
+.main-panel{min-width:0}.answer{font-size:20px}.side-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;margin-top:16px;box-shadow:0 8px 25px rgba(20,55,46,.05)}
+.side-panel h2{font-size:23px;margin:0 0 5px}.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+.tool-field label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin-bottom:5px}
+.tool-field input,.tool-field select{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;font:inherit;background:white;color:var(--ink)}
+.tool-result{background:#edf7f0;border-radius:15px;padding:15px;margin-top:13px}
+.tool-result strong{font-size:30px;color:var(--green)}
+.sound-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.sound-btn{border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12);color:white;padding:7px 10px;border-radius:99px;font-size:12px;font-weight:800}
+@media(max-width:650px){.app-layout{grid-template-columns:1fr;gap:5px}.side-nav{position:static;display:flex;overflow-x:auto;gap:4px;padding:6px}.side-nav button{white-space:nowrap;width:auto;flex:1;justify-content:center;padding:10px 9px}.side-nav button span:last-child{font-size:11px}.side-nav button .nav-ico{font-size:17px}.side-panel{padding:16px}.answer{font-size:18px}}
 </style>
 </head>
 <body>
 <div class="confetti" id="confetti" aria-hidden="true"></div>
 <main class="wrap">
-  <div class="brand"><div class="brandmark"><span class="mark">＋</span><span>物理治療 · 健康教育</span></div><span class="tag">約 4–5 分鐘</span></div>
+  <div class="brand"><div class="brandmark"><span class="mark">＋</span><span>物理治療 · 健康教育</span></div><span class="tag">健康互動平台</span></div>
+  <div class="app-layout"><aside class="side-nav" aria-label="功能導覽"><button class="active" data-tab="quiz"><span class="nav-ico">🧠</span><span>運動迷思 Q&A</span></button><button data-tab="grip"><span class="nav-ico">✊</span><span>握力參考數據</span></button><button data-tab="bmi"><span class="nav-ico">⚖️</span><span>BMI 計算器</span></button></aside><div class="main-panel">
+  <div id="quizArea">
   <header class="hero">
     <div>
       <div class="eyebrow">MOVE MORE · FEEL BETTER</div>
       <h1>運動迷思<br>大挑戰！</h1>
-      <p>減重一定要跑步？流汗越多就越有效？用 13 條問題，一齊拆解運動迷思，學識點樣健康地動起來！</p>
-      <div class="hero-pills"><span>13 條問題</span><span>即時解說</span><span>免費參加</span></div>
+      <p>減重一定要跑步？流汗越多就越有效？用 14 條問題，一齊拆解運動迷思，學識點樣健康地動起來！</p>
+      <div class="hero-pills"><span>14 條問題</span><span>即時解說</span><span>免費參加</span></div>
     </div>
     <img class="art" src="fitness-squat.webp" alt="人物示範深蹲運動" loading="eager">
   </header>
 
   <section id="start" class="card">
     <h2>準備好接受挑戰未？</h2>
-    <p class="muted" style="margin:7px 0 0">今次挑戰有 13 條問題。選擇「迷思」或「事實」，即時看看答案及物理治療師的小貼士！</p>
-    <div class="intro-grid"><div class="mini"><strong>🎯 13 條問題</strong><span>認識運動與健康體重管理</span></div><div class="mini"><strong>💡 即時解說</strong><span>答完即知道原因</span></div></div>
+    <p class="muted" style="margin:7px 0 0">今次挑戰有 14 條問題。選擇「迷思」或「事實」，即時看看答案及物理治療師的小貼士！</p>
+    <div class="intro-grid"><div class="mini"><strong>🎯 14 條問題</strong><span>認識運動與健康體重管理</span></div><div class="mini"><strong>💡 即時解說</strong><span>答完即知道原因</span></div></div>
     <div class="cartoon-row" aria-label="運動卡通插圖"><div class="cartoon-card"><svg viewBox="0 0 120 105" role="img" aria-label="男子舉起啞鈴"><circle cx="60" cy="49" r="43" fill="#e5f3e9"/><path d="M24 38h72" stroke="#765b42" stroke-width="5" stroke-linecap="round"/><path d="M29 27v22m-7-17v12m69-17v22m7-17v12" stroke="#176b55" stroke-width="6" stroke-linecap="round"/><circle cx="60" cy="31" r="11" fill="#efbd96"/><path d="M49 29q2-14 15-10l8 8-7-2-13 5" fill="#354d43"/><path d="M48 47q12-9 24 0l7 25H41Z" fill="#f2bd54"/><path d="M49 49 35 37m36 12 14-12" stroke="#efbd96" stroke-width="7" stroke-linecap="round"/><path d="m49 70-5 17m27-17 5 17" stroke="#345d50" stroke-width="9" stroke-linecap="round"/><path d="M36 89h17m14 0h17" stroke="#176b55" stroke-width="6" stroke-linecap="round"/></svg><strong>舉重小健將</strong></div><div class="cartoon-card"><svg viewBox="0 0 120 105" role="img" aria-label="男子正在跑步"><circle cx="60" cy="49" r="43" fill="#fff2d7"/><path d="M24 78h72" stroke="#d9b66e" stroke-width="3" stroke-linecap="round"/><circle cx="65" cy="23" r="10" fill="#efbd96"/><path d="M56 21q3-13 15-8l7 8-12-2-9 7" fill="#354d43"/><path d="m58 38 18 8-9 17-17-8Z" fill="#ed8b6c"/><path d="m62 42-17 4-10-10m38 12 14-12" stroke="#efbd96" stroke-width="7" fill="none" stroke-linecap="round"/><path d="m58 57-17 13-17-1m37-7 13 15 18 1" stroke="#345d50" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="m21 71 10 1m61 7 9 1" stroke="#176b55" stroke-width="5" stroke-linecap="round"/><path d="M22 29h12m-8-7h9" stroke="#e5a83f" stroke-width="3" stroke-linecap="round"/></svg><strong>跑步衝呀！</strong></div><div class="cartoon-card"><svg viewBox="0 0 120 105" role="img" aria-label="運動後滿頭大汗的人"><circle cx="60" cy="49" r="43" fill="#e9f1ff"/><circle cx="58" cy="44" r="22" fill="#efbd96"/><path d="M37 41q1-25 24-22 17 2 20 22-13-9-23-10-10 9-21 10" fill="#354d43"/><path d="M47 44q4-4 8 0m9 0q4-4 8 0" stroke="#354d43" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M53 55q7 5 14 0" stroke="#a34e46" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M34 57q-8 8-7 26h63q-1-18-16-25" fill="#6b9fc8"/><path d="M31 34q-8-8-4-15m67 22q8-8 5-16M86 54q9 1 9 10" stroke="#4a9fd2" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M40 13l-4-6m47 12 5-7" stroke="#e5a83f" stroke-width="3" stroke-linecap="round"/></svg><strong>汗流浹背！</strong></div></div>
     <button class="primary" id="startBtn">開始挑戰 →</button>
     <p class="small-note">本問答只作一般健康教育，並非個人醫療建議。運動應按個人健康狀況及能力調整。</p>
   </section>
 
   <section id="quiz" class="card hidden" aria-live="polite">
-    <div class="quiz-top"><span id="progressText">第 1 題，共 13 題</span><span id="scoreText">得分：0</span></div>
+    <div class="quiz-top"><span id="progressText">第 1 題，共 14 題</span><span id="scoreText">得分：0</span></div>
     <div class="bar"><div id="progressBar"></div></div>
     <div class="timer-row"><span class="timer-label">⏳ 限時作答</span><div class="timer-track"><span id="timerTrack"></span></div><span class="timer-pill" id="timerPill">10 秒</span></div>
     <div class="q-head"><div class="q-emoji" id="qEmoji" aria-hidden="true">🚶</div><div><span class="q-label" id="qNumber">問題 1</span><div class="muted" style="font-size:12px;margin-top:5px">你認為以下說法是迷思還是事實？</div></div></div>
@@ -74,7 +91,11 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
     <button class="primary" id="againBtn" style="margin-top:18px">再挑戰一次 ↻</button>
   </section>
 
-    <div class="footer"><strong>動多啲．健康啲</strong><br>物理治療健康教育活動<br>由小習慣開始，建立持續運動的生活。</div>
+    </div>
+  <section id="gripPanel" class="side-panel hidden"><h2>握力參考數據</h2><p class="muted">Handgrip strength reference · Jamar dynamometer</p><p>選擇參考資料及性別，查看研究中的成人握力數據。請注意，不同研究的測試流程及人口背景可能不同，數值只供健康教育及群體比較，並非診斷標準。</p><div class="tool-grid"><div class="tool-field"><label for="gripSource">參考資料</label><select id="gripSource"><option value="cn">中國全國健康調查（Jamar）</option><option value="intl">國際系統性回顧</option></select></div><div class="tool-field"><label for="gripSex">性別</label><select id="gripSex"><option value="male">男性</option><option value="female">女性</option></select></div></div><div class="tool-result" id="gripResult"><strong>39 kg</strong><div>中國研究成人男性整體中位數（20–80歲）</div></div><p class="small-note">中國研究：39,655名8–80歲參與者，使用Jamar測量；成人男性整體中位數39 kg（IQR 33–44），女性24 kg（IQR 20–27）。此為整體成人統計，不是各年齡層的個別界值。國際研究匯總100項研究、2,405,863名20–100+歲成人；包含多種測力計，數據經方法學統一處理。</p><ul class="sources"><li><a href="https://doi.org/10.1002/jcsm.13223" target="_blank" rel="noopener">He et al., 2023 — Chinese population norms</a></li><li><a href="https://doi.org/10.1016/j.jshs.2024.101014" target="_blank" rel="noopener">Tomkinson et al., 2025 — International norms</a></li></ul><p class="small-note">測試建議：坐姿、手肘屈曲約90°、前臂中立；左右手各測3次，記錄最高值。比較時應盡量沿用研究相同的測試姿勢及流程。</p></section>
+  <section id="bmiPanel" class="side-panel hidden"><h2>BMI 計算器</h2><p class="muted">Body Mass Index · 香港中國成年人分類</p><div class="tool-grid"><div class="tool-field"><label for="weightInput">體重</label><input id="weightInput" type="number" min="1" max="500" value="65"></div><div class="tool-field"><label for="weightUnit">體重單位</label><select id="weightUnit"><option value="kg">kg</option><option value="lb">lb</option></select></div><div class="tool-field"><label for="heightInput">身高</label><input id="heightInput" type="number" min="1" max="300" value="170"></div><div class="tool-field"><label for="heightUnit">身高單位</label><select id="heightUnit"><option value="cm">cm</option><option value="m">m</option><option value="in">inches</option></select></div></div><div class="tool-result"><div class="muted">你的 BMI</div><strong id="bmiValue">22.5</strong><div id="bmiCategory">BMI 適中</div><p id="healthyRange" class="small-note">以目前身高計算，BMI 18.5–22.9 的參考體重範圍：53.5–66.2 kg</p></div><p class="small-note">香港中國成年人分類：低於18.5為過輕；18.5至低於23為適中；23至低於25為超重；25或以上為肥胖。BMI是篩查指標，不能直接量度體脂或診斷疾病；不適用於孕婦及兒童。</p><p class="sources"><a href="https://www.chp.gov.hk/en/healthtopics/content/25/8802.html" target="_blank" rel="noopener">香港衞生防護中心：肥胖及BMI</a></p></section>
+  </div>
+  <div class="footer"><strong>動多啲．健康啲</strong><br>物理治療健康教育活動<br>由小習慣開始，建立持續運動的生活。</div>
 </main>
 <script>
 const bank=[
@@ -91,10 +112,11 @@ const bank=[
 {q:"每天只要做了運動，之後在辦公室或家裡連續坐著 8-10 小時不動，也不會影響運動效果？",a:"迷思",emoji:"🪑",e:"這在醫學界被稱為「運動型久坐族（Active Couch Potato）」！即使你每天有運動，長期的「連續久坐」依然會顯著降低基礎代謝率並增加心血管風險。每坐 50 分鐘起來站立或走動 2 分鐘，比你下班後瘋狂狂跑 15 分鐘更能維持全天的高代謝狀態！",tip:""},
 {q:"想消除肚子上的贅肉，做全身性的運動（如深蹲、開合跳、划船）會比單純狂做仰臥起坐更有效？",a:"事實",emoji:"🏋️",e:"脂肪的消耗是全身性的，無法指定「只減肚子」。全身性大肌群運動消耗的總熱量遠高於單純練腹肌的動作，熱量赤字越大，肚子掉得越快！",tip:""},
 {q:"重量訓練增加肌肉量之後，就算躺著不動，每天消耗的卡路里也會比以前多？",a:"事實",emoji:"🔥",e:"肌肉是身體的「耗能大戶」。肌肉量越高，基礎代謝率（BMR）就越高。重訓能幫你打造「易瘦體質」，讓你在休息時也能消耗更多熱量。",tip:""}
+,{q:"握力較低的人，研究發現其日後死亡風險通常較高？",a:"事實",emoji:"✊",e:"多項大型研究發現，握力較低的人士，日後出現較高全因死亡及心血管疾病死亡風險的機會亦較高。握力是反映整體肌肉力量及身體健康狀況的簡單指標。不過，握力並不能直接預測一個人可以活多久，亦不代表單靠增加握力就一定能延長壽命。",tip:"握力是一項健康指標，不是壽命預測工具。"}
 ];
 let round=[],pos=0,score=0,locked=false,timerId=null,timeLeft=10;
 const $=id=>document.getElementById(id);
-function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function shuffle(arr){return [...arr]}
 function confetti(){const holder=$('confetti');holder.innerHTML='';for(let i=0;i<35;i++){const p=document.createElement('i');p.style.left=(Math.random()*100)+'%';p.style.background=['#176b55','#ffd36f','#f29a78','#82c9a8'][i%4];p.style.animationDelay=(Math.random()*.35)+'s';holder.appendChild(p)}setTimeout(()=>holder.innerHTML='',1700)}
 function stopTimer(){if(timerId){clearInterval(timerId);timerId=null}}
 function startTimer(){stopTimer();timeLeft=10;updateTimer();timerId=setInterval(()=>{timeLeft--;updateTimer();if(timeLeft<=0){stopTimer();answer(null)}},1000)}
@@ -104,6 +126,24 @@ function render(){locked=false;const item=round[pos];$('progressText').textConte
 function answer(choice){if(locked)return;locked=true;stopTimer();const item=round[pos];const timedOut=choice===null;const good=!timedOut&&choice===item.a;if(good)score++;$('scoreText').textContent='得分：'+score;const chosen=choice?$(choice==='迷思'?'mythBtn':'factBtn'):null;const correct=$(item.a==='迷思'?'mythBtn':'factBtn');correct.classList.add('correct');if(chosen&&!good)chosen.classList.add('wrong');$('mythBtn').disabled=true;$('factBtn').disabled=true;$('feedbackTitle').textContent=timedOut?'⏰ 時間到！答案揭曉':good?'答對了！🎉':'差一點！一起學習：';$('feedbackText').textContent=item.e;$('feedbackTip').textContent=item.tip;$('feedbackTip').classList.toggle('hidden',!item.tip);$('feedback').classList.remove('hidden');if(!good)$('feedback').classList.add('bad');$('nextBtn').textContent=pos===round.length-1?'查看成績 →':'下一題 →';$('nextBtn').classList.remove('hidden');if(good)confetti()}
 function next(){if(pos<round.length-1){pos++;render();$('quiz').scrollIntoView({behavior:'smooth',block:'start'})}else{stopTimer();$('quiz').classList.add('hidden');$('result').classList.remove('hidden');$('progressBar').style.width='100%';$('finalScore').textContent=score+'/'+round.length;let m=score===round.length?'太厲害了！你是運動知識達人！':score>=10?'做得好！你對健康運動有相當認識。':score>=6?'不錯呀！繼續認識運動，健康知識日日進步。':'多謝參加！每答一題，都是建立健康習慣的好開始。';$('resultMessage').textContent=m;$('result').scrollIntoView({behavior:'smooth',block:'start'});confetti()}}
 $('startBtn').addEventListener('click',begin);$('againBtn').addEventListener('click',begin);$('mythBtn').addEventListener('click',()=>answer('迷思'));$('factBtn').addEventListener('click',()=>answer('事實'));$('nextBtn').addEventListener('click',next);
+// Sidebar navigation
+const tabButtons=[...document.querySelectorAll('[data-tab]')];
+function showTab(tab){tabButtons.forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('quizArea').classList.toggle('hidden',tab!=='quiz');$('gripPanel').classList.toggle('hidden',tab!=='grip');$('bmiPanel').classList.toggle('hidden',tab!=='bmi');}
+tabButtons.forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+// Grip reference summary values published by the Chinese Jamar study.
+function updateGrip(){const female=$('gripSex').value==='female';const cn=female?{v:'24 kg',d:'中國研究女性成人整體中位數（20–80歲），IQR 20–27 kg'}:{v:'39 kg',d:'中國研究男性成人整體中位數（20–80歲），IQR 33–44 kg'};const intl=female?{v:'29.7 kg',d:'國際研究女性30–39歲組別平均峰值（非所有年齡的中位數）'}:{v:'49.7 kg',d:'國際研究男性30–39歲組別平均峰值（非所有年齡的中位數）'};const x=$('gripSource').value==='cn'?cn:intl;$('gripResult').innerHTML='<strong>'+x.v+'</strong><div>'+x.d+'</div>';}
+$('gripSource').addEventListener('change',updateGrip);$('gripSex').addEventListener('change',updateGrip);
+function calcBMI(){const w=parseFloat($('weightInput').value),h=parseFloat($('heightInput').value);const kg=$('weightUnit').value==='lb'?w*.45359237:w;let m=h;if($('heightUnit').value==='cm')m=h/100;else if($('heightUnit').value==='in')m=h*.0254;if(!(kg>0&&m>0&&Number.isFinite(kg)&&Number.isFinite(m))){$('bmiValue').textContent='—';$('bmiCategory').textContent='請輸入有效數值';$('healthyRange').textContent='';return;}const bmi=kg/(m*m);$('bmiValue').textContent=bmi.toFixed(1);$('bmiCategory').textContent=bmi<18.5?'過輕':bmi<23?'BMI 適中':bmi<25?'超重':'肥胖';$('healthyRange').textContent='以目前身高計算，BMI 18.5–22.9 的參考體重範圍：'+(18.5*m*m).toFixed(1)+'–'+(22.9*m*m).toFixed(1)+' kg';}
+['weightInput','heightInput','weightUnit','heightUnit'].forEach(id=>$(id).addEventListener('input',calcBMI));calcBMI();
+// Original Web Audio quiz theme and answer effects; begins only after a user gesture.
+let audioCtx=null,musicTimer=null,musicOn=false,soundEnabled=true;const melody=[72,76,79,84,83,79,76,79,81,84,88,84,79,76,74,76];let noteIndex=0;
+function playTone(midi,duration=.22,vol=.035){if(!audioCtx)return;const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type='triangle';osc.frequency.value=440*Math.pow(2,(midi-69)/12);gain.gain.setValueAtTime(.0001,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(vol,audioCtx.currentTime+.015);gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration);osc.connect(gain);gain.connect(audioCtx.destination);osc.start();osc.stop(audioCtx.currentTime+duration+.02);}
+function startMusic(){if(musicOn)return;audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();audioCtx.resume();musicOn=true;musicTimer=setInterval(()=>{playTone(melody[noteIndex%melody.length],.24,.012);noteIndex++;},250);}
+function stopMusic(){musicOn=false;if(musicTimer)clearInterval(musicTimer);musicTimer=null;}
+function answerSound(good){if(!soundEnabled)return;if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();if(good){[76,79,84].forEach((n,i)=>setTimeout(()=>playTone(n,.18,.045),i*100));}else{[67,64,60].forEach((n,i)=>setTimeout(()=>playTone(n,.23,.025),i*130));}}
+const soundToggle=document.createElement('button');soundToggle.className='sound-btn';soundToggle.textContent='♫ 關閉聲音';soundToggle.type='button';soundToggle.addEventListener('click',()=>{if(musicOn){stopMusic();soundEnabled=false;stopMusic();soundToggle.textContent='🔇 開啟聲音';}else{soundEnabled=true;startMusic();soundToggle.textContent='♫ 關閉聲音';}});document.querySelector('.hero-pills').appendChild(soundToggle);
+const originalAnswer=answer;answer=function(choice){const before=score;originalAnswer(choice);if(locked)answerSound(choice!==null&&choice===round[pos].a);};
+
 </script>
 </body>
 </html>
