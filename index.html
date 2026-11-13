@@ -44,6 +44,13 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
 .tool-result{background:#edf7f0;border-radius:15px;padding:15px;margin-top:13px}
 .tool-result strong{font-size:30px;color:var(--green)}
 .sound-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.grip-table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.grip-table{border-collapse:collapse;min-width:520px;width:100%;font-size:12px;text-align:center}
+.grip-table th,.grip-table td{padding:9px 7px;border-bottom:1px solid var(--line);white-space:nowrap}
+.grip-table thead th{background:#edf7f0;color:var(--green);font-weight:900}
+.grip-table tbody tr:last-child td{border-bottom:0}
+.grip-table .selected-age{background:#fff4dc;font-weight:900}
+
 .sound-btn{border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12);color:white;padding:7px 10px;border-radius:99px;font-size:12px;font-weight:800}
 @media(max-width:650px){.app-layout{grid-template-columns:1fr;gap:5px}.side-nav{position:static;display:flex;overflow-x:auto;gap:4px;padding:6px}.side-nav button{white-space:nowrap;width:auto;flex:1;justify-content:center;padding:10px 9px}.side-nav button span:last-child{font-size:11px}.side-nav button .nav-ico{font-size:17px}.side-panel{padding:16px}.answer{font-size:18px}}
 </style>
@@ -92,7 +99,23 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
   </section>
 
     </div>
-  <section id="gripPanel" class="side-panel hidden"><h2>握力參考數據</h2><p class="muted">Handgrip strength reference · Jamar dynamometer</p><p>選擇參考資料及性別，查看研究中的成人握力數據。請注意，不同研究的測試流程及人口背景可能不同，數值只供健康教育及群體比較，並非診斷標準。</p><div class="tool-grid"><div class="tool-field"><label for="gripSource">參考資料</label><select id="gripSource"><option value="cn">中國全國健康調查（Jamar）</option><option value="intl">國際系統性回顧</option></select></div><div class="tool-field"><label for="gripSex">性別</label><select id="gripSex"><option value="male">男性</option><option value="female">女性</option></select></div></div><div class="tool-result" id="gripResult"><strong>39 kg</strong><div>中國研究成人男性整體中位數（20–80歲）</div></div><p class="small-note">中國研究：39,655名8–80歲參與者，使用Jamar測量；成人男性整體中位數39 kg（IQR 33–44），女性24 kg（IQR 20–27）。此為整體成人統計，不是各年齡層的個別界值。國際研究匯總100項研究、2,405,863名20–100+歲成人；包含多種測力計，數據經方法學統一處理。</p><ul class="sources"><li><a href="https://doi.org/10.1002/jcsm.13223" target="_blank" rel="noopener">He et al., 2023 — Chinese population norms</a></li><li><a href="https://doi.org/10.1016/j.jshs.2024.101014" target="_blank" rel="noopener">Tomkinson et al., 2025 — International norms</a></li></ul><p class="small-note">測試建議：坐姿、手肘屈曲約90°、前臂中立；左右手各測3次，記錄最高值。比較時應盡量沿用研究相同的測試姿勢及流程。</p></section>
+  <section id="gripPanel" class="side-panel hidden">
+    <h2>握力百分位評估</h2><p class="muted">中國成年人參考數據 · Jamar 握力計 · 單位：kg</p>
+    <p>輸入年齡、性別及握力，查看你的握力在同年齡及同性別中國參考人群中的百分位範圍。</p>
+    <div class="tool-grid">
+      <div class="tool-field"><label for="gripAge">年齡（歲）</label><input id="gripAge" type="number" min="20" max="80" step="1" placeholder="例如：45"></div>
+      <div class="tool-field"><label for="gripSex">性別</label><select id="gripSex"><option value="male">男性</option><option value="female">女性</option></select></div>
+      <div class="tool-field" style="grid-column:1/-1"><label for="gripValue">握力（kg）</label><input id="gripValue" type="number" min="0" max="150" step="0.1" placeholder="輸入測得的握力"></div>
+    </div>
+    <div class="tool-result" id="gripResult" aria-live="polite"><strong>輸入資料以查看結果</strong><div>適用年齡：20–80歲</div></div>
+    <h3 style="font-size:16px;margin:19px 0 8px">中國成年人握力百分位參考表</h3>
+    <p class="small-note">以下顯示所選性別各年齡組的 P5、P25、P50、P75 及 P95 數值。可橫向滑動查看。</p>
+    <div class="grip-table-wrap"><table class="grip-table" id="gripNormTable"></table></div>
+    <p class="small-note">結果代表你落在兩個已發表百分位界值之間，並非精確的個人百分位排名。例如 P25–P50 表示握力介乎同年齡、同性別參考人群的第25至第50百分位。低於 P5 或高於 P95 則表示低於或高於該參考界值。</p>
+    <p class="small-note">研究對象為中國成年人（20–80歲），並非香港本地常模。研究測試方法：慣用手、站立、手臂自然伸直垂於身側；先作練習，再用力握緊兩次，每次3秒，兩次相隔至少30秒，取最高讀數。若現場測試姿勢或次數不同，結果只宜作參考。</p>
+    <ul class="sources"><li><a href="https://doi.org/10.1002/jcsm.13223" target="_blank" rel="noopener">He et al., 2023 — Normative values of hand grip strength in a large unselected Chinese population</a></li></ul>
+    <p class="small-note">此工具只作健康教育及群體參考，不能用作診斷肌少症或其他疾病。</p>
+  </section>
   <section id="bmiPanel" class="side-panel hidden"><h2>BMI 計算器</h2><p class="muted">Body Mass Index · 香港中國成年人分類</p><div class="tool-grid"><div class="tool-field"><label for="weightInput">體重</label><input id="weightInput" type="number" min="1" max="500" value="65"></div><div class="tool-field"><label for="weightUnit">體重單位</label><select id="weightUnit"><option value="kg">kg</option><option value="lb">lb</option></select></div><div class="tool-field"><label for="heightInput">身高</label><input id="heightInput" type="number" min="1" max="300" value="170"></div><div class="tool-field"><label for="heightUnit">身高單位</label><select id="heightUnit"><option value="cm">cm</option><option value="m">m</option><option value="in">inches</option></select></div></div><div class="tool-result"><div class="muted">你的 BMI</div><strong id="bmiValue">22.5</strong><div id="bmiCategory">BMI 適中</div><p id="healthyRange" class="small-note">以目前身高計算，BMI 18.5–22.9 的參考體重範圍：53.5–66.2 kg</p></div><p class="small-note">香港中國成年人分類：低於18.5為過輕；18.5至低於23為適中；23至低於25為超重；25或以上為肥胖。BMI是篩查指標，不能直接量度體脂或診斷疾病；不適用於孕婦及兒童。</p><p class="sources"><a href="https://www.chp.gov.hk/en/healthtopics/content/25/8802.html" target="_blank" rel="noopener">香港衞生防護中心：肥胖及BMI</a></p></section>
   </div>
   <div class="footer"><strong>動多啲．健康啲</strong><br>物理治療健康教育活動<br>由小習慣開始，建立持續運動的生活。</div>
@@ -130,11 +153,56 @@ $('startBtn').addEventListener('click',begin);$('againBtn').addEventListener('cl
 const tabButtons=[...document.querySelectorAll('[data-tab]')];
 function showTab(tab){tabButtons.forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('quizArea').classList.toggle('hidden',tab!=='quiz');$('gripPanel').classList.toggle('hidden',tab!=='grip');$('bmiPanel').classList.toggle('hidden',tab!=='bmi');}
 tabButtons.forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
-// Grip reference summary values published by the Chinese Jamar study.
-function updateGrip(){const female=$('gripSex').value==='female';const cn=female?{v:'24 kg',d:'中國研究女性成人整體中位數（20–80歲），IQR 20–27 kg'}:{v:'39 kg',d:'中國研究男性成人整體中位數（20–80歲），IQR 33–44 kg'};const intl=female?{v:'29.7 kg',d:'國際研究女性30–39歲組別平均峰值（非所有年齡的中位數）'}:{v:'49.7 kg',d:'國際研究男性30–39歲組別平均峰值（非所有年齡的中位數）'};const x=$('gripSource').value==='cn'?cn:intl;$('gripResult').innerHTML='<strong>'+x.v+'</strong><div>'+x.d+'</div>';}
-$('gripSource').addEventListener('change',updateGrip);$('gripSex').addEventListener('change',updateGrip);
+// Age- and sex-specific percentile cut-offs transcribed from Table 2, He et al. 2023.
+const gripNorms={
+ male:[
+  {age:"20–29",p5:30,p25:37,p50:42,p75:48,p95:55},
+  {age:"30–39",p5:30,p25:37,p50:42,p75:47,p95:55},
+  {age:"40–49",p5:28,p25:36,p50:40,p75:46,p95:53},
+  {age:"50–59",p5:26,p25:32,p50:37,p75:42,p95:51},
+  {age:"60–69",p5:20,p25:28,p50:32.15,p75:38,p95:46},
+  {age:"70–80",p5:16,p25:22,p50:27,p75:32,p95:40}
+ ],
+ female:[
+  {age:"20–29",p5:16,p25:21,p50:24,p75:28,p95:33},
+  {age:"30–39",p5:18,p25:22,p50:26,p75:29,p95:34},
+  {age:"40–49",p5:16,p25:22,p50:25,p75:28,p95:34},
+  {age:"50–59",p5:14,p25:19,p50:22,p75:26,p95:30},
+  {age:"60–69",p5:12,p25:17,p50:20,p75:23,p95:28},
+  {age:"70–80",p5:10,p25:14,p50:17,p75:20,p95:25}
+ ]
+};
+function gripAgeIndex(age){return age<30?0:age<40?1:age<50?2:age<60?3:age<70?4:5;}
+function renderGripTable(){
+ const sex=$('gripSex').value,rows=gripNorms[sex],age=Number($('gripAge').value);
+ const idx=$('gripAge').value!==''&&Number.isInteger(age)&&age>=20&&age<=80?gripAgeIndex(age):-1;
+ $('gripNormTable').innerHTML='<thead><tr><th>年齡組</th><th>P5</th><th>P25</th><th>P50</th><th>P75</th><th>P95</th></tr></thead><tbody>'+
+ rows.map((r,i)=>'<tr'+(i===idx?' class="selected-age"':'')+'><td>'+r.age+'</td><td>'+r.p5+'</td><td>'+r.p25+'</td><td>'+r.p50+'</td><td>'+r.p75+'</td><td>'+r.p95+'</td></tr>').join('')+'</tbody>';
+}
+function updateGrip(){
+ const age=Number($('gripAge').value),value=Number($('gripValue').value),sex=$('gripSex').value;
+ renderGripTable();
+ if(!$('gripAge').value||!Number.isInteger(age)||age<20||age>80){
+  $('gripResult').innerHTML='<strong>請輸入 20–80 歲</strong><div>此研究的成人參考數據適用於20至80歲。</div>';return;
+ }
+ if($('gripValue').value===''||!Number.isFinite(value)||value<0||value>150){
+  $('gripResult').innerHTML='<strong>請輸入有效握力</strong><div>請輸入以 kg 為單位的測量結果。</div>';return;
+ }
+ const r=gripNorms[sex][gripAgeIndex(age)];
+ let band,detail;
+ if(value<r.p5){band='< P5';detail='低於同年齡及同性別參考人群的第5百分位界值。';}
+ else if(value<r.p25){band='P5–P25';detail='介乎第5至第25百分位。';}
+ else if(value<r.p50){band='P25–P50';detail='介乎第25至第50百分位。';}
+ else if(value<r.p75){band='P50–P75';detail='介乎第50至第75百分位。';}
+ else if(value<r.p95){band='P75–P95';detail='介乎第75至第95百分位。';}
+ else {band='> P95';detail='高於同年齡及同性別參考人群的第95百分位界值。';}
+ $('gripResult').innerHTML='<strong>'+band+'</strong><div>'+age+'歲'+(sex==='male'?'男性':'女性')+' · 握力 '+value.toFixed(1)+' kg</div><div style="margin-top:6px">'+detail+'</div><div class="small-note">參考年齡組：'+r.age+'歲；界值 P5 '+r.p5+' / P25 '+r.p25+' / P50 '+r.p50+' / P75 '+r.p75+' / P95 '+r.p95+' kg</div>';
+}
+['gripAge','gripValue','gripSex'].forEach(id=>$(id).addEventListener('input',updateGrip));
+$('gripSex').addEventListener('change',updateGrip);
+renderGripTable();
 function calcBMI(){const w=parseFloat($('weightInput').value),h=parseFloat($('heightInput').value);const kg=$('weightUnit').value==='lb'?w*.45359237:w;let m=h;if($('heightUnit').value==='cm')m=h/100;else if($('heightUnit').value==='in')m=h*.0254;if(!(kg>0&&m>0&&Number.isFinite(kg)&&Number.isFinite(m))){$('bmiValue').textContent='—';$('bmiCategory').textContent='請輸入有效數值';$('healthyRange').textContent='';return;}const bmi=kg/(m*m);$('bmiValue').textContent=bmi.toFixed(1);$('bmiCategory').textContent=bmi<18.5?'過輕':bmi<23?'BMI 適中':bmi<25?'超重':'肥胖';$('healthyRange').textContent='以目前身高計算，BMI 18.5–22.9 的參考體重範圍：'+(18.5*m*m).toFixed(1)+'–'+(22.9*m*m).toFixed(1)+' kg';}
-['weightInput','heightInput','weightUnit','heightUnit'].forEach(id=>$(id).addEventListener('input',calcBMI));calcBMI();
+['weightInput','heightInput','weightUnit','heightUnit'].forEach(id=>$(id).addEventListener('input',calcBMI));calcBMI();updateGrip();
 // Original Web Audio quiz theme and answer effects; begins only after a user gesture.
 let audioCtx=null,musicTimer=null,musicOn=false,soundEnabled=true;const melody=[72,76,79,84,83,79,76,79,81,84,88,84,79,76,74,76];let noteIndex=0;
 function playTone(midi,duration=.22,vol=.035){if(!audioCtx)return;const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type='triangle';osc.frequency.value=440*Math.pow(2,(midi-69)/12);gain.gain.setValueAtTime(.0001,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(vol,audioCtx.currentTime+.015);gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration);osc.connect(gain);gain.connect(audioCtx.destination);osc.start();osc.stop(audioCtx.currentTime+duration+.02);}
