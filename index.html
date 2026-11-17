@@ -109,14 +109,18 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
       <div class="tool-field" style="grid-column:1/-1"><label for="gripValue">握力（kg）</label><input id="gripValue" type="number" min="0" max="150" step="0.1" placeholder="輸入測得的握力"></div>
     </div>
     <div class="tool-result" id="gripResult" aria-live="polite"><strong>輸入資料以查看結果</strong><div>適用年齡：20–80歲</div></div>
-    <div class="tool-result grip-risk-result" id="gripRiskResult" aria-live="polite"><h3>握力與健康風險</h3><p>輸入年齡、性別及握力後，查看與同年齡及同性別中國參考中位數相比的全因死亡相對 hazard 估算。</p><strong>等待輸入資料</strong><p class="small-note">此估算只反映群體層面的統計關聯，並非個人死亡機率、診斷或個人化風險預測。</p></div>
+    <div class="tool-result grip-risk-result" id="gripRiskResult" aria-live="polite"><h3>握力與健康風險</h3><p>研究指出，握力較低的人士，日後全因死亡風險通常較高。</p><strong>等待輸入資料</strong><p class="small-note">此結果只反映研究中的群體統計關聯，並非個人死亡機率或診斷結果。實際健康風險亦受年齡、生活習慣及其他健康因素影響。</p></div>
     <h3 style="font-size:16px;margin:19px 0 8px">中國成年人握力百分位參考表</h3>
     <p class="small-note">以下顯示所選性別各年齡組的 P5、P25、P50、P75 及 P95 數值。可橫向滑動查看。</p>
     <div class="grip-table-wrap"><table class="grip-table" id="gripNormTable"></table></div>
     <p class="small-note">結果代表你落在兩個已發表百分位界值之間，並非精確的個人百分位排名。例如 P25–P50 表示握力介乎同年齡、同性別參考人群的第25至第50百分位。低於 P5 或高於 P95 則表示低於或高於該參考界值。</p>
     <p class="small-note">研究對象為中國成年人（20–80歲），並非香港本地常模。研究測試方法：慣用手、站立、手臂自然伸直垂於身側；先作練習，再用力握緊兩次，每次3秒，兩次相隔至少30秒，取最高讀數。若現場測試姿勢或次數不同，結果只宜作參考。</p>
-    <ul class="sources"><li><a href="https://doi.org/10.1002/jcsm.13223" target="_blank" rel="noopener">He et al., 2023 — Normative values of hand grip strength in a large unselected Chinese population</a></li></ul>
     <p class="small-note">此工具只作健康教育及群體參考，不能用作診斷肌少症或其他疾病。</p>
+    <h3 style="font-size:16px;margin:19px 0 8px">參考資料</h3>
+    <ul class="sources">
+      <li><a href="https://doi.org/10.1002/jcsm.13223" target="_blank" rel="noopener">He et al., 2023 — Normative values of hand grip strength in a large unselected Chinese population</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/25982160/" target="_blank" rel="noopener">Leong et al., 2015 — Prognostic value of grip strength: findings from the PURE study</a></li>
+    </ul>
   </section>
   <section id="bmiPanel" class="side-panel hidden"><h2>BMI 計算器</h2><p class="muted">Body Mass Index · 香港中國成年人分類</p><div class="tool-grid"><div class="tool-field"><label for="weightInput">體重</label><input id="weightInput" type="number" min="1" max="500" value="65"></div><div class="tool-field"><label for="weightUnit">體重單位</label><select id="weightUnit"><option value="kg">kg</option><option value="lb">lb</option></select></div><div class="tool-field"><label for="heightInput">身高</label><input id="heightInput" type="number" min="1" max="300" value="170"></div><div class="tool-field"><label for="heightUnit">身高單位</label><select id="heightUnit"><option value="cm">cm</option><option value="m">m</option><option value="in">inches</option></select></div></div><div class="tool-result"><div class="muted">你的 BMI</div><strong id="bmiValue">22.5</strong><div id="bmiCategory">BMI 適中</div><p id="healthyRange" class="small-note">以目前身高計算，BMI 18.5–22.9 的參考體重範圍：53.5–66.2 kg</p></div><p class="small-note">香港中國成年人分類：低於18.5為過輕；18.5至低於23為適中；23至低於25為超重；25或以上為肥胖。BMI是篩查指標，不能直接量度體脂或診斷疾病；不適用於孕婦及兒童。</p><p class="sources"><a href="https://www.chp.gov.hk/en/healthtopics/content/25/8802.html" target="_blank" rel="noopener">香港衞生防護中心：肥胖及BMI</a></p></section>
   </div>
@@ -185,10 +189,10 @@ function updateGrip(){
  const age=Number($('gripAge').value),value=Number($('gripValue').value),sex=$('gripSex').value;
  renderGripTable();
  if(!$('gripAge').value||!Number.isInteger(age)||age<20||age>80){
-  $('gripResult').innerHTML='<strong>請輸入 20–80 歲</strong><div>此研究的成人參考數據適用於20至80歲。</div>';$('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>請先輸入有效的年齡、性別及握力。</p>';return;
+  $('gripResult').innerHTML='<strong>請輸入 20–80 歲</strong><div>此研究的成人參考數據適用於20至80歲。</div>';$('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>研究指出，握力較低的人士，日後全因死亡風險通常較高。</p><p class="small-note">此結果只反映研究中的群體統計關聯，並非個人死亡機率或診斷結果。實際健康風險亦受年齡、生活習慣及其他健康因素影響。</p>';return;
  }
  if($('gripValue').value===''||!Number.isFinite(value)||value<0||value>150){
-  $('gripResult').innerHTML='<strong>請輸入有效握力</strong><div>請輸入以 kg 為單位的測量結果。</div>';$('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>請輸入有效的握力數值。</p>';return;
+  $('gripResult').innerHTML='<strong>請輸入有效握力</strong><div>請輸入以 kg 為單位的測量結果。</div>';$('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>研究指出，握力較低的人士，日後全因死亡風險通常較高。</p><p class="small-note">此結果只反映研究中的群體統計關聯，並非個人死亡機率或診斷結果。實際健康風險亦受年齡、生活習慣及其他健康因素影響。</p>';return;
  }
  const r=gripNorms[sex][gripAgeIndex(age)];
  let band,detail;
@@ -207,7 +211,7 @@ function updateGrip(){
  if(Math.abs(hr-1)<0.0005){riskText='與參考中位數相若';riskColor='#176b55';}
  else if(hr>1){riskText='約高 '+Math.round(pct)+'%';riskColor='#9a641d';}
  else{riskText='約低 '+Math.round(pct)+'%';riskColor='#176b55';}
- $('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>根據 PURE 研究，估算與同年齡及同性別中國參考中位數相比的全因死亡相對 hazard。</p><div class="risk-value" style="color:'+riskColor+'">'+riskText+'</div><div class="risk-meta">你的握力：'+value.toFixed(1)+' kg　｜　參考 P50：'+r.p50+' kg　｜　相差：'+(value-r.p50>=0?'+':'')+(value-r.p50).toFixed(1)+' kg</div><div class="small-note">計算：1.16<sup>(('+r.p50+' − '+value.toFixed(1)+') ÷ 5)</sup> = '+hr.toFixed(2)+'</div><p>此結果是群體層面的統計關聯，並非個人死亡機率或診斷。PURE 的係數並非中國人口專屬模型；以中國參考 P50 作比較基準只供健康教育，並非經驗證的個人化預測。</p><p class="small-note"><a href="https://pubmed.ncbi.nlm.nih.gov/25982160/" target="_blank" rel="noopener">PURE 研究：Leong et al., 2015</a>（每低 5 kg，整體全因死亡 hazard ratio 1.16）。</p>';
+ $('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>研究指出，握力較低的人士，日後全因死亡風險通常較高。</p><div class="risk-meta">與參考中位數相比</div><div class="risk-value" style="color:'+riskColor+'">'+riskText+'</div><div class="risk-meta">你的握力：'+value.toFixed(1)+' kg　｜　參考中位數：'+r.p50+' kg</div><p class="small-note">此結果只反映研究中的群體統計關聯，並非個人死亡機率或診斷結果。實際健康風險亦受年齡、生活習慣及其他健康因素影響。</p>';
 }
 ['gripAge','gripValue','gripSex'].forEach(id=>$(id).addEventListener('input',updateGrip));
 $('gripSex').addEventListener('change',updateGrip);
