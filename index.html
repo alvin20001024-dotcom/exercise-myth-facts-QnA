@@ -43,7 +43,7 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
 .tool-field input,.tool-field select{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;font:inherit;background:white;color:var(--ink)}
 .tool-result{background:#edf7f0;border-radius:15px;padding:15px;margin-top:13px}
 .tool-result strong{font-size:30px;color:var(--green)}
-.grip-risk-result{background:#f8f7ef;border:1px solid #eee5c9}.grip-risk-result h3{font-size:18px;margin:0 0 5px}.grip-risk-result p{font-size:13px;margin:6px 0;color:var(--muted)}.grip-risk-result .risk-value{font-size:27px;color:#9a641d;font-weight:900;line-height:1.35}.grip-risk-result .risk-meta{font-size:12px;color:var(--muted);margin-top:8px}
+.grip-risk-result{background:#f8f7ef;border:1px solid #eee5c9}.grip-risk-result h3{font-size:18px;margin:0 0 5px}.grip-risk-result p{font-size:13px;margin:6px 0;color:var(--muted)}.grip-risk-result .risk-meta{font-size:12px;color:var(--muted);margin-top:8px}.relative-result-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.relative-result-cell{min-width:0;background:#fff;border-radius:12px;padding:10px}.relative-label{font-size:12px;color:var(--muted);margin-bottom:4px}.relative-number{font-size:27px;font-weight:900;color:var(--green);line-height:1.3}.relative-cutoffs{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.relative-cutoff{font-size:20px;font-weight:900;color:var(--green);white-space:nowrap}.relative-cutoff small{font-size:12px;font-weight:700;color:var(--muted)}.metabolic-status{display:inline-block;margin:4px 0 2px;padding:5px 10px;border-radius:99px;background:#fff0db;color:#805719;font-size:12px;font-weight:900}.metabolic-status.ok{background:#e5f4eb;color:#176344}
 .sound-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
 .grip-table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:12px}
 .grip-table{border-collapse:collapse;min-width:520px;width:100%;font-size:12px;text-align:center}
@@ -113,14 +113,25 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
     </div>
   <section id="gripPanel" class="side-panel hidden">
     <h2>握力百分位評估</h2><p class="muted">中國成年人參考數據 · Jamar 握力計 · 單位：kg</p>
-    <p>輸入年齡、性別及握力，查看你的握力在同年齡及同性別中國參考人群中的百分位範圍。</p>
+    <p>輸入年齡、性別、握力及體重，查看你的握力百分位及相關代謝健康參考指標。</p>
     <div class="tool-grid">
       <div class="tool-field"><label for="gripAge">年齡（歲）</label><input id="gripAge" type="number" min="20" max="80" step="1" placeholder="例如：45"></div>
       <div class="tool-field"><label for="gripSex">性別</label><select id="gripSex"><option value="male">男性</option><option value="female">女性</option></select></div>
-      <div class="tool-field" style="grid-column:1/-1"><label for="gripValue">握力（kg）</label><input id="gripValue" type="number" min="0" max="150" step="0.1" placeholder="輸入測得的握力"></div>
+      <div class="tool-field"><label for="gripValue">握力（kg）</label><input id="gripValue" type="number" min="0" max="150" step="0.1" placeholder="輸入測得的握力"></div>
+      <div class="tool-field"><label for="gripWeight">體重（kg）</label><input id="gripWeight" type="number" min="1" max="500" step="0.1" placeholder="輸入體重"></div>
     </div>
     <div class="tool-result" id="gripResult" aria-live="polite"><strong>輸入資料以查看結果</strong><div>適用年齡：20–80歲</div></div>
-    <div class="tool-result grip-risk-result" id="gripRiskResult" aria-live="polite"><h3>握力與健康風險</h3><p>研究指出，握力較低的人士，日後全因死亡風險通常較高。</p><strong>等待輸入資料</strong><p class="small-note">此結果只反映研究中的群體統計關聯，並非個人死亡機率或診斷結果。實際健康風險亦受年齡、生活習慣及其他健康因素影響。</p></div>
+    <div class="tool-result grip-risk-result" id="gripRiskResult" aria-live="polite">
+      <h3>握力與代謝健康</h3>
+      <p>握力除了反映肌肉力量，亦可能與身體的代謝健康有關。</p>
+      <div class="relative-result-row">
+        <div class="relative-result-cell"><div class="relative-label">你的握力與體重比例</div><div class="relative-number">等待輸入</div></div>
+        <div class="relative-result-cell"><div class="relative-label">研究參考值</div><div class="relative-cutoffs"><span class="relative-cutoff">0.563 <small>男士</small></span><span class="relative-cutoff">0.436 <small>女士</small></span></div></div>
+      </div>
+      <p>輸入握力及體重後，即可查看結果。</p>
+      <p class="risk-meta">計算方法：握力（kg）÷體重（kg）。</p>
+      <p class="small-note">參考值來自一項中國大型研究，並不能用作診斷代謝綜合症。結果高於參考值亦不代表沒有健康風險。</p>
+    </div>
     <h3 style="font-size:16px;margin:19px 0 8px">中國成年人握力百分位參考表</h3>
     <p class="small-note">以下顯示所選性別各年齡組的 P5、P25、P50、P75 及 P95 數值。可橫向滑動查看。</p>
     <div class="grip-table-wrap"><table class="grip-table" id="gripNormTable"></table></div>
@@ -130,7 +141,7 @@ button{font:inherit;cursor:pointer}.wrap{width:min(760px,calc(100% - 26px));marg
     <h3 style="font-size:16px;margin:19px 0 8px">參考資料</h3>
     <ul class="sources">
       <li><a href="https://doi.org/10.1002/jcsm.13223" target="_blank" rel="noopener">He et al., 2023 — Normative values of hand grip strength in a large unselected Chinese population</a></li>
-      <li><a href="https://pubmed.ncbi.nlm.nih.gov/25982160/" target="_blank" rel="noopener">Leong et al., 2015 — Prognostic value of grip strength: findings from the PURE study</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/39616779/" target="_blank" rel="noopener">Wu et al., 2025 — The association between handgrip strength and metabolic syndrome: A large prospective Chinese cohort study</a></li>
     </ul>
   </section>
   <section id="bmiPanel" class="side-panel hidden"><h2>BMI 計算器</h2><p class="muted">Body Mass Index · 香港中國成年人分類</p><div class="tool-grid"><div class="tool-field"><label for="weightInput">體重</label><input id="weightInput" type="number" min="1" max="500" value="65"></div><div class="tool-field"><label for="weightUnit">體重單位</label><select id="weightUnit"><option value="kg">kg</option><option value="lb">lb</option></select></div><div class="tool-field"><label for="heightInput">身高</label><input id="heightInput" type="number" min="1" max="300" value="170"></div><div class="tool-field"><label for="heightUnit">身高單位</label><select id="heightUnit"><option value="cm">cm</option><option value="m">m</option><option value="in">inches</option></select></div></div><div class="tool-result"><div class="muted">你的 BMI</div><strong id="bmiValue">22.5</strong><div id="bmiCategory">BMI 適中</div><p id="healthyRange" class="small-note">以目前身高計算，BMI 18.5–22.9 的參考體重範圍：53.5–66.2 kg</p></div><p class="small-note">香港中國成年人分類：低於18.5為過輕；18.5至低於23為適中；23至低於25為超重；25或以上為肥胖。BMI是篩查指標，不能直接量度體脂或診斷疾病；不適用於孕婦及兒童。</p><p class="sources"><a href="https://www.chp.gov.hk/en/healthtopics/content/25/8802.html" target="_blank" rel="noopener">香港衞生防護中心：肥胖及BMI</a></p></section>
@@ -197,34 +208,48 @@ function renderGripTable(){
  rows.map((r,i)=>'<tr'+(i===idx?' class="selected-age"':'')+'><td>'+r.age+'</td><td>'+r.p5+'</td><td>'+r.p25+'</td><td>'+r.p50+'</td><td>'+r.p75+'</td><td>'+r.p95+'</td></tr>').join('')+'</tbody>';
 }
 function updateGrip(){
- const age=Number($('gripAge').value),value=Number($('gripValue').value),sex=$('gripSex').value;
+ const age=Number($('gripAge').value),value=Number($('gripValue').value),bodyWeight=Number($('gripWeight').value),sex=$('gripSex').value;
+ const ageValid=$('gripAge').value!==''&&Number.isInteger(age)&&age>=20&&age<=80;
+ const gripValid=$('gripValue').value!==''&&Number.isFinite(value)&&value>=0&&value<=150;
+ const weightValid=$('gripWeight').value!==''&&Number.isFinite(bodyWeight)&&bodyWeight>0&&bodyWeight<=500;
  renderGripTable();
- if(!$('gripAge').value||!Number.isInteger(age)||age<20||age>80){
-  $('gripResult').innerHTML='<strong>請輸入 20–80 歲</strong><div>此研究的成人參考數據適用於20至80歲。</div>';$('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>研究指出，握力較低的人士，日後全因死亡風險通常較高。</p><p class="small-note">此結果只反映研究中的群體統計關聯，並非個人死亡機率或診斷結果。實際健康風險亦受年齡、生活習慣及其他健康因素影響。</p>';return;
+
+ if(!ageValid){
+  $('gripResult').innerHTML='<strong>請輸入 20–80 歲</strong><div>此研究的成人參考數據適用於20至80歲。</div>';
+ }else if(!gripValid){
+  $('gripResult').innerHTML='<strong>請輸入有效握力</strong><div>請輸入以 kg 為單位的測量結果。</div>';
+ }else{
+  const r=gripNorms[sex][gripAgeIndex(age)];
+  let band,detail;
+  if(value<r.p5){band='< P5';detail='低於同年齡及同性別參考人群的第5百分位界值。';}
+  else if(value<r.p25){band='P5–P25';detail='介乎第5至第25百分位。';}
+  else if(value<r.p50){band='P25–P50';detail='介乎第25至第50百分位。';}
+  else if(value<r.p75){band='P50–P75';detail='介乎第50至第75百分位。';}
+  else if(value<r.p95){band='P75–P95';detail='介乎第75至第95百分位。';}
+  else {band='> P95';detail='高於同年齡及同性別參考人群的第95百分位界值。';}
+  $('gripResult').innerHTML='<strong>'+band+'</strong><div>'+age+'歲'+(sex==='male'?'男性':'女性')+' · 握力 '+value.toFixed(1)+' kg</div><div style="margin-top:6px">'+detail+'</div><div class="small-note">參考年齡組：'+r.age+'歲；界值 P5 '+r.p5+' / P25 '+r.p25+' / P50 '+r.p50+' / P75 '+r.p75+' / P95 '+r.p95+' kg</div>';
  }
- if($('gripValue').value===''||!Number.isFinite(value)||value<0||value>150){
-  $('gripResult').innerHTML='<strong>請輸入有效握力</strong><div>請輸入以 kg 為單位的測量結果。</div>';$('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>研究指出，握力較低的人士，日後全因死亡風險通常較高。</p><p class="small-note">此結果只反映研究中的群體統計關聯，並非個人死亡機率或診斷結果。實際健康風險亦受年齡、生活習慣及其他健康因素影響。</p>';return;
+
+ const maleCutoff='0.563',femaleCutoff='0.436',cutoff=sex==='male'?Number(maleCutoff):Number(femaleCutoff);
+ const cutoffsHtml='<div class="relative-result-cell"><div class="relative-label">研究參考值</div><div class="relative-cutoffs"><span class="relative-cutoff">'+maleCutoff+' <small>男士</small></span><span class="relative-cutoff">'+femaleCutoff+' <small>女士</small></span></div></div>';
+ let ratioHtml='<div class="relative-result-cell"><div class="relative-label">你的握力與體重比例</div><div class="relative-number">—</div></div>';
+ let outcomeHtml='<p>請輸入握力及體重，以計算握力與體重的比例。</p>';
+ if(gripValid&&weightValid){
+  const ratio=value/bodyWeight;
+  const below=ratio<cutoff;
+  ratioHtml='<div class="relative-result-cell"><div class="relative-label">你的握力與體重比例</div><div class="relative-number">'+ratio.toFixed(3)+'</div></div>';
+  outcomeHtml=below
+   ?'<span class="metabolic-status">低於研究參考值</span><p>你的握力與體重的比例低於研究參考值。研究發現，這類人士日後出現代謝綜合症的機會可能較高。</p>'
+   :'<span class="metabolic-status ok">達到或高於研究參考值</span><p>你的握力與體重的比例達到或高於研究參考值。不過，這並不代表沒有代謝綜合症風險，仍應留意整體健康及生活習慣。</p>';
+ }else{
+  const missing=[];
+  if(!gripValid)missing.push('握力');
+  if(!weightValid)missing.push('體重');
+  outcomeHtml='<p>請輸入有效的'+missing.join('及')+'，以查看結果。</p>';
  }
- const r=gripNorms[sex][gripAgeIndex(age)];
- let band,detail;
- if(value<r.p5){band='< P5';detail='低於同年齡及同性別參考人群的第5百分位界值。';}
- else if(value<r.p25){band='P5–P25';detail='介乎第5至第25百分位。';}
- else if(value<r.p50){band='P25–P50';detail='介乎第25至第50百分位。';}
- else if(value<r.p75){band='P50–P75';detail='介乎第50至第75百分位。';}
- else if(value<r.p95){band='P75–P95';detail='介乎第75至第95百分位。';}
- else {band='> P95';detail='高於同年齡及同性別參考人群的第95百分位界值。';}
- $('gripResult').innerHTML='<strong>'+band+'</strong><div>'+age+'歲'+(sex==='male'?'男性':'女性')+' · 握力 '+value.toFixed(1)+' kg</div><div style="margin-top:6px">'+detail+'</div><div class="small-note">參考年齡組：'+r.age+'歲；界值 P5 '+r.p5+' / P25 '+r.p25+' / P50 '+r.p50+' / P75 '+r.p75+' / P95 '+r.p95+' kg</div>';
- // PURE pooled estimate: HR = 1.16^((Chinese age/sex P50 - measured grip)/5).
- // Educational comparison only; not a validated individual or Chinese-population prediction model.
- const hr=Math.pow(1.16,(r.p50-value)/5);
- const pct=Math.abs((hr-1)*100);
- let riskText, riskColor;
- if(Math.abs(hr-1)<0.0005){riskText='與參考中位數相若';riskColor='#176b55';}
- else if(hr>1){riskText='約高 '+Math.round(pct)+'%';riskColor='#9a641d';}
- else{riskText='約低 '+Math.round(pct)+'%';riskColor='#176b55';}
- $('gripRiskResult').innerHTML='<h3>握力與健康風險</h3><p>研究指出，握力較低的人士，日後全因死亡風險通常較高。</p><div class="risk-meta">與參考中位數相比</div><div class="risk-value" style="color:'+riskColor+'">'+riskText+'</div><div class="risk-meta">你的握力：'+value.toFixed(1)+' kg　｜　參考中位數：'+r.p50+' kg</div><p class="small-note">此結果只反映研究中的群體統計關聯，並非個人死亡機率或診斷結果。實際健康風險亦受年齡、生活習慣及其他健康因素影響。</p>';
+ $('gripRiskResult').innerHTML='<h3>握力與代謝健康</h3><p>握力除了反映肌肉力量，亦可能與身體的代謝健康有關。</p><div class="relative-result-row">'+ratioHtml+cutoffsHtml+'</div>'+outcomeHtml+'<p class="risk-meta">計算方法：握力（kg）÷體重（kg）。</p><p class="small-note">參考值來自一項中國大型研究，並不能用作診斷代謝綜合症。結果高於參考值亦不代表沒有健康風險。</p>';
 }
-['gripAge','gripValue','gripSex'].forEach(id=>$(id).addEventListener('input',updateGrip));
+['gripAge','gripValue','gripWeight','gripSex'].forEach(id=>$(id).addEventListener('input',updateGrip));
 $('gripSex').addEventListener('change',updateGrip);
 renderGripTable();
 function calcBMI(){const w=parseFloat($('weightInput').value),h=parseFloat($('heightInput').value);const kg=$('weightUnit').value==='lb'?w*.45359237:w;let m=h;if($('heightUnit').value==='cm')m=h/100;else if($('heightUnit').value==='in')m=h*.0254;if(!(kg>0&&m>0&&Number.isFinite(kg)&&Number.isFinite(m))){$('bmiValue').textContent='—';$('bmiCategory').textContent='請輸入有效數值';$('healthyRange').textContent='';return;}const bmi=kg/(m*m);$('bmiValue').textContent=bmi.toFixed(1);$('bmiCategory').textContent=bmi<18.5?'過輕':bmi<23?'BMI 適中':bmi<25?'超重':'肥胖';$('healthyRange').textContent='以目前身高計算，BMI 18.5–22.9 的參考體重範圍：'+(18.5*m*m).toFixed(1)+'–'+(22.9*m*m).toFixed(1)+' kg';}
