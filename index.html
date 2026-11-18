@@ -257,7 +257,7 @@ function updateGrip(){
   if(!weightValid)missing.push('體重');
   outcomeHtml='<p>請輸入有效的'+missing.join('及')+'，以查看結果。</p>';
  }
- $('gripRiskResult').innerHTML='<h3>握力與代謝健康</h3><p>握力除了反映肌肉力量，亦可能與身體的代謝健康有關。</p><p><strong>甚麼是代謝綜合症？</strong> 是指腰圍過大、血壓偏高、血糖偏高或血脂異常等多項問題同時出現，會增加患上心臟病、中風及糖尿病的風險。</p><div class="relative-result-row">'+ratioHtml+cutoffsHtml+'</div>'+outcomeHtml+'<p class="risk-meta">計算方法：握力（kg）÷體重（kg）。</p><p class="small-note">參考值來自一項中國大型研究，並不能用作診斷代謝綜合症。結果高於參考值亦不代表沒有健康風險。</p>';
+ $('gripRiskResult').innerHTML='<h3>握力與代謝健康</h3><p>握力除了反映肌肉力量，亦可能與身體的代謝健康有關。</p><p><strong>甚麼是代謝綜合症？</strong> 是指腰圍過大、血壓偏高、血糖偏高或血脂異常等多項問題同時出現，會增加患上心臟病、中風及糖尿病的風險。</p><p>研究發現，握力與體重的比例低於相應性別的研究參考值，日後出現代謝綜合症的機會可能較高。</p><div class="relative-result-row">'+ratioHtml+cutoffsHtml+'</div>'+outcomeHtml+'<p class="risk-meta">計算方法：握力（kg）÷體重（kg）。</p><p class="small-note">參考值來自一項中國大型研究，並不能用作診斷代謝綜合症。結果高於參考值亦不代表沒有健康風險。</p>';
 }
 ['gripAge','gripValue','gripWeight','gripSex'].forEach(id=>$(id).addEventListener('input',updateGrip));
 $('gripSex').addEventListener('change',updateGrip);
